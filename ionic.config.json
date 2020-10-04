@@ -1,0 +1,7 @@
+{
+  "name": "chino-granjero",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
