@@ -27,8 +27,11 @@
 
 /*Own sass filess */
 @import "theme/abstracts/variables";
+@import "theme/abstracts/functions";
+@import "theme/abstracts/mixins";
 
 @import "theme/base/base";
 @import "theme/base/typography";
+
 
 @import "theme/pages/login";

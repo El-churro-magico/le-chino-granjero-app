@@ -1,10 +1,15 @@
-ion-content.login
-  .login__title El Chino Granjero
-  .login-content
-    span.login-content__title Iniciar sesión
-    ion-input(placeholder="Usuario").login-content__user
-    ion-input(placeholder="Contraseña").login-content__password
-    .login__submit
-      ion-button(expand="block").login__submit--login Iniciar sesión
-      p.login__submit--signup O registrarse
-    
+ion-content
+  .login
+    .login__title
+      .login__title--text El Chino Granjero
+    .login-content
+      span.login-content__title Iniciar sesión
+      ion-input(
+        placeholder="Usuario").login-content__user
+      ion-input(
+        placeholder="Contraseña"
+        type="password").login-content__password
+      .login__submit
+        ion-button(expand="block").login__submit--login Iniciar sesión
+        p.login__submit--signup O registrarse
+      
