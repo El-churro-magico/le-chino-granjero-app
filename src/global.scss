@@ -24,3 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/*Own sass filess */
+@import "theme/abstracts/variables";
+
+@import "theme/base/base";
+@import "theme/base/typography";
+
+@import "theme/pages/login";
