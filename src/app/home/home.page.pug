@@ -5,29 +5,29 @@ ion-header.main-header
       img(src="https://img.icons8.com/office/80/000000/place-marker.png").pinpoint
       span.location__text Central, Alajuela, Alajuela
 
-ion-content.main-content
-  .card-box
-    h2.card-box__title Productores cerca suyo
-    ion-card
-      ion-card-header
-        ion-card-title Card
-      ion-card-content
-        span El chinazo
-    ion-card
-      ion-card-header
-        ion-card-title Card
-      ion-card-content
-        span El chinazo
 
-ion-tabs
-  ion-tab-bar(slot="bottom").main-footer
-    ion-tab-button(tab="tienda").main-footer__element
-      ion-icon(src="assets/storefront-outline.svg")
-      ion-label Tienda
-    ion-tab-button(tab="carrito").main-footer__element
-      ion-icon(name="cart-outline")
-      ion-label Carrito
-    ion-tab-button(tab="perfil").main-footer__element
-      ion-icon(name="person-circle")
-      ion-label Perfil
+ion-content.main-content
+  .content
+    h2.content__title Productores cerca suyo
+    .card-box
+      productor-card
+      productor-card
+      productor-card
+      productor-card
+      productor-card
+      productor-card
+      productor-card
+      productor-card
         
+ion-footer.main-footer
+  ion-tabs
+    ion-tab-bar(slot="bottom").main-footer
+      ion-tab-button(tab="tienda").main-footer__element
+        ion-icon(src="assets/store.svg")
+        ion-label Tienda
+      ion-tab-button(tab="carrito").main-footer__element
+        ion-icon(name="cart-outline")
+        ion-label Carrito
+      ion-tab-button(tab="perfil").main-footer__element
+        ion-icon(name="person-circle")
+        ion-label Perfil

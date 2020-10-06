@@ -1,0 +1,45 @@
+productor-card{
+  height: rem-calc($card-height);
+  width: rem-calc($card-width);
+  margin-bottom: rem-calc(15px);
+  display: inline-block;
+  //margin-right: rem-calc($card-space-between);
+
+  .card-body{
+    background: wheat;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    .card-info{
+      margin: 0 rem-calc(10px) rem-calc(10px);
+      bottom:0;
+      position: absolute;
+
+      &__name{
+        font-weight: 500;
+        margin: 0;
+        color: white;
+        font-size: rem-calc(18px);
+      }
+
+      .card-score{
+        margin-top: rem-calc(-14px);
+        &__star{
+          width: rem-calc(14px);
+          height: rem-calc(14px);
+          display: inline;
+        }
+        &__score{
+          display: inline;
+          p{
+            display: inline;
+            color:white;
+            font-size: rem-calc(15px);
+          }
+        }
+      }
+    }
+  }
+}

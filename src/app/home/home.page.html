@@ -5,35 +5,35 @@
   </div>
 </ion-header>
 <ion-content class="main-content">
-  <div class="card-box">
-    <h2 class="card-box__title">Productores cerca suyo</h2>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card</ion-card-title>
-      </ion-card-header>
-      <ion-card-content><span>El chinazo</span></ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card</ion-card-title>
-      </ion-card-header>
-      <ion-card-content><span>El chinazo</span></ion-card-content>
-    </ion-card>
+  <div class="content">
+    <h2 class="content__title">Productores cerca suyo</h2>
+    <div class="card-box">
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+      <productor-card></productor-card>
+    </div>
   </div>
 </ion-content>
-<ion-tabs>
-  <ion-tab-bar class="main-footer" slot="bottom">
-    <ion-tab-button class="main-footer__element" tab="tienda">
-      <ion-icon src="assets/storefront-outline.svg"></ion-icon>
-      <ion-label>Tienda</ion-label>
-    </ion-tab-button>
-    <ion-tab-button class="main-footer__element" tab="carrito">
-      <ion-icon name="cart-outline"></ion-icon>
-      <ion-label>Carrito</ion-label>
-    </ion-tab-button>
-    <ion-tab-button class="main-footer__element" tab="perfil">
-      <ion-icon name="person-circle"></ion-icon>
-      <ion-label>Perfil</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-footer class="main-footer">
+  <ion-tabs>
+    <ion-tab-bar class="main-footer" slot="bottom">
+      <ion-tab-button class="main-footer__element" tab="tienda">
+        <ion-icon src="assets/store.svg"></ion-icon>
+        <ion-label>Tienda</ion-label>
+      </ion-tab-button>
+      <ion-tab-button class="main-footer__element" tab="carrito">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-label>Carrito</ion-label>
+      </ion-tab-button>
+      <ion-tab-button class="main-footer__element" tab="perfil">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>
