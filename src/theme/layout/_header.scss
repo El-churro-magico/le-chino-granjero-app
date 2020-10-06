@@ -1,0 +1,34 @@
+.main-header{
+
+  &::after{
+    display: none;
+  }
+
+  background-color: $color-header;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 9px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  box-shadow: 0 0 10px black;
+  padding: 22px 0;
+
+  .salad{
+    width: rem-calc(50px);
+    height: rem-calc(50px);
+  }
+
+  .pinpoint{
+    width:rem-calc(25px);
+    height: rem-calc(25px);
+  }
+
+  .location{
+    &__text{
+      margin-left: rem-calc(10px);
+      font-size: 18px;
+    }
+  }
+
+}

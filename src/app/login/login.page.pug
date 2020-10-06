@@ -11,6 +11,6 @@ ion-content
           placeholder="Contraseña"
           type="password").inputs__input.inputs__input--password
       .login__submit
-        a.button.login__submit--login Iniciar sesión
+        a('(click)'="login()").button.login__submit--login Iniciar sesión
         a('(click)'="signup()").login__submit--signup O registrarse
       

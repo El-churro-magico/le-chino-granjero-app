@@ -1,11 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Aaa
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button [routerLink]="['/login']">Go to login</ion-button>
+<ion-header class="main-header">
+  <div class="logo"><img class="salad" src="https://img.icons8.com/plasticine/100/000000/salad.png"/>
+    <div class="location"><img class="pinpoint" src="https://img.icons8.com/office/80/000000/place-marker.png"/><span class="location__text">Central, Alajuela, Alajuela</span></div>
+  </div>
+</ion-header>
+<ion-content class="main-content">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Card</ion-card-title>
+    </ion-card-header>
+    <ion-card-content><span>El chinazo</span></ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer class="main-footer">
+  <div class="main-footer__options">
+    <button class="main-footer__options--tienda">Tienda</button>
+    <button class="main-footer__options--carrito">Carrito </button>
+    <button class="main-footer__options--perfil">Perfil</button>
+  </div>
+</ion-footer>

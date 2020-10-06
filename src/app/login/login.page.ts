@@ -12,9 +12,12 @@ export class LoginPage{
   constructor(private router: Router) {}
 
   signup(){
-    this.router.navigate(['/signup'])
+    this.router.navigate(['/signup']);
     console.log("A");
+  }
 
+  login(){
+    this.router.navigate(['/home']);
   }
 
 }
