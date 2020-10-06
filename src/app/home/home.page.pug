@@ -6,14 +6,28 @@ ion-header.main-header
       span.location__text Central, Alajuela, Alajuela
 
 ion-content.main-content
-  ion-card
-    ion-card-header
-      ion-card-title Card
-    ion-card-content
-      span El chinazo
+  .card-box
+    h2.card-box__title Productores cerca suyo
+    ion-card
+      ion-card-header
+        ion-card-title Card
+      ion-card-content
+        span El chinazo
+    ion-card
+      ion-card-header
+        ion-card-title Card
+      ion-card-content
+        span El chinazo
 
-ion-footer.main-footer
-  .main-footer__options
-    button.main-footer__options--tienda Tienda
-    button.main-footer__options--carrito Carrito 
-    button.main-footer__options--perfil Perfil
+ion-tabs
+  ion-tab-bar(slot="bottom").main-footer
+    ion-tab-button(tab="tienda").main-footer__element
+      ion-icon(src="assets/storefront-outline.svg")
+      ion-label Tienda
+    ion-tab-button(tab="carrito").main-footer__element
+      ion-icon(name="cart-outline")
+      ion-label Carrito
+    ion-tab-button(tab="perfil").main-footer__element
+      ion-icon(name="person-circle")
+      ion-label Perfil
+        
