@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import {ProductorCardComponent} from '../components/productor-card/productor-card.component';
+import { ProductorCardComponent } from '../components/productor-card/productor-card.component';
+import { HeaderComponent } from '../components/header/header.component';
+import {FooterComponent} from '../components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import {ProductorCardComponent} from '../components/productor-card/productor-car
   ],
   declarations: [
     HomePage,
-    ProductorCardComponent
+    ProductorCardComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class HomePageModule {}
