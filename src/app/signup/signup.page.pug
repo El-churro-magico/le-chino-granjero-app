@@ -1,0 +1,46 @@
+ion-content
+  .login
+    .login-content.login-content--signup
+      span.login-content__title Registro
+      .inputs
+        ion-input(
+          placeholder="Nombre").inputs__input.inputs__input--user
+        ion-input(
+          placeholder="Apellido").inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Cédula").inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Número telefónico").inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Fecha de nacimiento").inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Usuario").inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Contraseña"
+          type="password").inputs__input.inputs__input--password
+        .inputs.inputs--inline
+          ion-select(
+            '[(ngModel)]'="provincia",
+            '(ionChange)'="changedProvincia()",
+            placeholder="Provincia"
+            ).inputs__input.inputs__input--inline
+            ion-select-option(
+              '*ngFor'="let provincia of this.provinces"
+              '[value]'="provincia.i") {{provincia.element}}
+          ion-select(
+            '[(ngModel)]'="canton",
+            '(ionChange)'="changedCanton()",
+            placeholder="Canton").inputs__input.inputs__input--inline
+            ion-select-option(
+                '*ngFor'="let canton of this.cantones"
+                '[value]'="canton.i") {{canton.element}}
+          ion-select(
+            '[(ngModel)]'="district",
+            '(ionChange)'="changedDistrict",
+            placeholder="Distrito").inputs__input.inputs__input--inline
+            ion-select-option(
+                '*ngFor'="let district of this.districts"
+                '[value]'="district.i") {{district.element}}
+      .login__submit
+        a.button.login__submit--login Registrarse
+      

@@ -1,0 +1,28 @@
+
+<ion-content>
+  <div class="login">
+    <div class="login-content login-content--signup"><span class="login-content__title">Registro</span>
+      <div class="inputs">
+        <ion-input class="inputs__input inputs__input--user" placeholder="Nombre"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Apellido"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Cédula"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Número telefónico"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Fecha de nacimiento"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Usuario"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Contraseña" type="password"></ion-input>
+        <div class="inputs inputs--inline">
+          <ion-select class="inputs__input inputs__input--inline" [(ngModel)]="provincia" (ionChange)="changedProvincia()" placeholder="Provincia">
+            <ion-select-option *ngFor="let provincia of this.provinces" [value]="provincia.i">{{provincia.element}}</ion-select-option>
+          </ion-select>
+          <ion-select class="inputs__input inputs__input--inline" [(ngModel)]="canton" (ionChange)="changedCanton()" placeholder="Canton">
+            <ion-select-option *ngFor="let canton of this.cantones" [value]="canton.i">{{canton.element}}</ion-select-option>
+          </ion-select>
+          <ion-select class="inputs__input inputs__input--inline" [(ngModel)]="district" (ionChange)="changedDistrict" placeholder="Distrito">
+            <ion-select-option *ngFor="let district of this.districts" [value]="district.i">{{district.element}}</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="login__submit"><a class="button login__submit--login">Registrarse</a></div>
+    </div>
+  </div>
+</ion-content>

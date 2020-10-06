@@ -5,12 +5,11 @@
       <div class="login__title--text">El Chino Granjero</div>
     </div>
     <div class="login-content"><span class="login-content__title">Iniciar sesión</span>
-      <ion-input class="login-content__user" placeholder="Usuario"></ion-input>
-      <ion-input class="login-content__password" placeholder="Contraseña" type="password"></ion-input>
-      <div class="login__submit">
-        <ion-button class="login__submit--login" expand="block">Iniciar sesión</ion-button>
-        <p class="login__submit--signup">O registrarse</p>
+      <div class="inputs">
+        <ion-input class="inputs__input inputs__input--user" placeholder="Usuario"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Contraseña" type="password"></ion-input>
       </div>
+      <div class="login__submit"><a class="button login__submit--login">Iniciar sesión</a><a class="login__submit--signup" (click)="signup()">O registrarse</a></div>
     </div>
   </div>
 </ion-content>
