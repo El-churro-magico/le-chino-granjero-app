@@ -5,4 +5,10 @@
   color: white;
   background: $color-red;
   border-radius: rem-calc(30px);
+
+  &--inverted{
+    color:$color-red;
+    background: white;
+  }
+
 }

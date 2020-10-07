@@ -1,0 +1,57 @@
+.top-image{
+  height: rem-calc(236px);
+  overflow-y: hidden;
+  filter: drop-shadow(-2px 4px 15px rgba(0,0,0,0.25));
+  border-radius: 33px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  img{
+    margin-top: -20%;
+    height: auto;
+  }
+}
+
+.profile-info{
+  text-align: center;
+  margin-bottom: rem-calc(46px);
+
+  &__title{
+    margin: 26px 0px 14.55px;
+    color: #e7454b;
+    font-weight: bold;
+    font-size: 40px;
+  }
+
+  &__content{
+    width: rem-calc(210px);
+    display: inline-block;
+    margin-top: 6%;
+    &__field{
+      margin-bottom: rem-calc(10px);
+      p{
+        display: inline;
+        font-weight: 400;
+        font-size: 18px;
+        color: #e7454b;
+        margin-right: 15px;
+      }
+      span{
+        display: inline;
+      }
+    }
+
+  }
+  span{
+    display: inline;
+  }
+}
+
+.profile-buttons{
+  text-align: center;
+  height: rem-calc(30px);
+  position: absolute;
+  bottom: rem-calc(30px);
+  left:23%;
+
+}
