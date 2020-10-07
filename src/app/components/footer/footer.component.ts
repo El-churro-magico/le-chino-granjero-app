@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-footer',
   templateUrl: 'footer.component.html',
@@ -17,5 +19,20 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class FooterComponent{
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  tienda(){
+    this.router.navigate(['/home']);
+  }
+
+  carrito(){
+
+  }
+
+  profile(){
+    this.router.navigate(['/home/profile'])
+  }
+
 }

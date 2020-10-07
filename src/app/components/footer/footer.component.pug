@@ -1,12 +1,12 @@
 ion-footer.main-footer   
   ion-tabs
     ion-tab-bar(slot="bottom").main-footer
-      ion-tab-button(tab="tienda").main-footer__element
+      ion-tab-button('(click)'="tienda()").main-footer__element
         ion-icon(src="assets/store.svg")
         ion-label Tienda
       ion-tab-button(tab="carrito").main-footer__element
         ion-icon(name="cart-outline")
         ion-label Carrito
-      ion-tab-button(tab="profile").main-footer__element
+      ion-tab-button('(click)'="profile()").main-footer__element
         ion-icon(name="person-circle")
         ion-label Perfil
