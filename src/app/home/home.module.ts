@@ -4,12 +4,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { HomePage } from './home.page';
-import { ProfilePage } from './profile/profile.page'
+import { ProfilePage } from './profile/profile.page';
+import { ProductorPage } from './productor/productor.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { ProductorCardComponent } from '../components/productor-card/productor-card.component';
 import { HeaderComponent } from '../components/header/header.component';
 import {FooterComponent} from '../components/footer/footer.component';
+import {ProductoCardComponent} from '../components/producto-card/producto-card.component'
 
 
 @NgModule({
@@ -22,9 +24,11 @@ import {FooterComponent} from '../components/footer/footer.component';
   declarations: [
     HomePage,
     ProfilePage,
+    ProductorPage,
     ProductorCardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProductoCardComponent
   ]
 })
 export class HomePageModule {}

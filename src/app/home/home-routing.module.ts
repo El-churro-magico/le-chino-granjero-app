@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomePage } from './home.page';
 import { ProfilePage } from './profile/profile.page';
+import { ProductorPage } from './productor/productor.page';
 
 const routes: Routes = [
   {
@@ -15,6 +17,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePage
+  },
+  {
+    path: 'productor',
+    component: ProductorPage
   }
 ];
 

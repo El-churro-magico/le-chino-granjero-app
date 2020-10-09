@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
-import { Router } from '@angular/router';
-
 @Component({
-  selector: 'productor-card',
-  templateUrl: 'productor-card.component.html',
-  styleUrls: ['productor-card.component.scss']
+  selector: 'producto-card',
+  templateUrl: 'producto-card.component.html',
+  styleUrls: ['producto-card.component.scss']
 })
 
 @NgModule({
@@ -18,12 +16,8 @@ import { Router } from '@angular/router';
     IonicModule ]
 })
 
-export class ProductorCardComponent{
+export class ProductoCardComponent{
   constructor(
-    private router: Router
   ) {}
 
-  goToProductor(){
-    this.router.navigate(['/home/productor']);
-  }
 }

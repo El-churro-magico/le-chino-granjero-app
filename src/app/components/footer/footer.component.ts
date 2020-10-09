@@ -28,7 +28,6 @@ export class FooterComponent{
   }
 
   carrito(){
-
   }
 
   profile(){

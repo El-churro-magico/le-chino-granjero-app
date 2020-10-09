@@ -6,9 +6,24 @@
   background: $color-red;
   border-radius: rem-calc(30px);
 
+  &--purple{
+    background: $color-purple;
+  }
+
   &--inverted{
     color:$color-red;
     background: white;
   }
+}
 
+.button-box{
+  .button{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    p{
+      flex:33%;
+      margin: 0;
+    }
+  }
 }
