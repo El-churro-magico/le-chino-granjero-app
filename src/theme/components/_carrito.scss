@@ -1,0 +1,58 @@
+.drawer{
+  position: absolute;
+  width: 100%;
+  top: 41%;
+  height: 400px;
+  background-color: #f6f6f6;
+  border-radius: 40px;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 30px 12px 17px;
+
+  .products{
+    height: 64%;
+  }
+
+  .h-line{
+    position: absolute;
+    width: 93%;
+    height: 1px;
+    background-color: rgba(0,0,0,0.25);
+    bottom: 32%;
+  }
+
+  .total{
+    text-align: center;
+    padding: 11px 16px;
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 16px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.25);
+    bottom: 17%;
+
+    &__title{
+      font-size: 18px;
+      font-weight: bold;
+      color: rgba(151,151,151,0.4);
+      margin-right: 35px;
+    }
+
+    &__price{
+      color: #52307c;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .button{
+    position: absolute;
+    width: 93%;
+    bottom: 5%;
+  }
+
+}
