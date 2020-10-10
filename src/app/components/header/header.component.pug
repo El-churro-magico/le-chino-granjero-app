@@ -1,4 +1,87 @@
 ion-header.main-header
+  .notification
+    .notification--new('*ngIf'="newNotification")
+    ion-icon.bell(name="notifications-outline")
+      
+  .popup('*ngIf'="notification")
+    .notification--expand
+      .notification-specific('*ngIf'="specificNotification")
+        .title
+          span ¿Cómo calificas la compra en general?
+        .score
+          .star#star-1
+            ion-icon(
+              name="star"
+              '*ngIf'="star1"
+              )
+            ion-icon(
+              name="star-outline"
+              '*ngIf'="!star1"
+              )
+          .star#star-2
+            ion-icon(
+              name="star"
+              '*ngIf'="star2"
+              )
+            ion-icon(
+              name="star-outline"
+              '*ngIf'="!star2"
+              )  
+          .star#star-3
+            ion-icon(
+              name="star"
+              '*ngIf'="star3"
+              )
+            ion-icon(
+              name="star-outline"
+              '*ngIf'="!star3"
+              )
+          .star#star-4
+            ion-icon(
+              name="star"
+              '*ngIf'="star4"
+              )
+            ion-icon(
+              name="star-outline"
+              '*ngIf'="!star4"
+              )
+          .star#star-5
+            ion-icon(
+              name="star"
+              '*ngIf'="star5"
+              )
+            ion-icon(
+              name="star-outline"
+              '*ngIf'="!star5"
+              )
+        .button Siguiente
+      .notification__card-box('*ngIf'="listNotification")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+        .notification__card
+          span.placeholder Calificar la compra de: <br/> Chino Yock
+          ion-icon.button-dismiss(name="close-circle")
+  
+  
   .logo
     img(src="https://img.icons8.com/plasticine/100/000000/salad.png").salad  
     .location

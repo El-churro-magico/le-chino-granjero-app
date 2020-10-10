@@ -1,5 +1,65 @@
 
 <ion-header class="main-header">
+  <div class="notification">
+    <div class="notification--new" *ngIf="newNotification"></div>
+    <ion-icon class="bell" name="notifications-outline"></ion-icon>
+  </div>
+  <div class="popup" *ngIf="notification">
+    <div class="notification--expand">
+      <div class="notification-specific" *ngIf="specificNotification">
+        <div class="title"><span>¿Cómo calificas la compra en general?</span></div>
+        <div class="score">
+          <div class="star" id="star-1">
+            <ion-icon name="star" *ngIf="star1"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star1"></ion-icon>
+          </div>
+          <div class="star" id="star-2">
+            <ion-icon name="star" *ngIf="star2"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star2"> </ion-icon>
+          </div>
+          <div class="star" id="star-3">
+            <ion-icon name="star" *ngIf="star3"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star3"></ion-icon>
+          </div>
+          <div class="star" id="star-4">
+            <ion-icon name="star" *ngIf="star4"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star4"></ion-icon>
+          </div>
+          <div class="star" id="star-5">
+            <ion-icon name="star" *ngIf="star5"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star5"></ion-icon>
+          </div>
+        </div>
+        <div class="button">Siguiente</div>
+      </div>
+      <div class="notification__card-box" *ngIf="listNotification">
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
+          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="logo"><img class="salad" src="https://img.icons8.com/plasticine/100/000000/salad.png"/>
     <div class="location"><img class="pinpoint" src="https://img.icons8.com/office/80/000000/place-marker.png"/><span class="location__text">Central, Alajuela, Alajuela</span></div>
   </div>

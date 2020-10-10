@@ -17,5 +17,6 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class HeaderComponent{
+  star1 = false;
   constructor() {}
 }
