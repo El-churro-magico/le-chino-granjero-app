@@ -18,5 +18,17 @@ import { FormsModule } from '@angular/forms';
 
 export class HeaderComponent{
   star1 = false;
+  newNotification = false;
+  notification = false;
+  specificNotification = false;
+  listNotification = false;
   constructor() {}
+  showNotif(){
+    this.notification = true;
+    this.listNotification = true;
+  }
+  hideNotif(){
+    this.notification = false;
+    this.listNotification = false;
+  }
 }

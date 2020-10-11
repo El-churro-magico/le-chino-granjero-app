@@ -1,5 +1,6 @@
 #carrito.popup('*ngIf'="showDrawer")
-  .drawer
+  .background('(click)'="hideCarrito()")
+  .drawer('*ngIf'="!uploadRecipe")
     .products
       carrito-card
       carrito-card
@@ -9,10 +10,8 @@
     .total
       span.total__title Total:
       span.total__price 10000
-    .button.button--checkout.button--purple Checkout
-
-.popup('*ngIf'="uploadRecipe")
-  .drawer
+    .button.button--checkout.button--purple() Checkout
+  .drawer('*ngIf'="uploadRecipe")
     .content
       ion-icon(name="cloud-upload").cloud
       span Subir comprobante de transacción de pago
@@ -25,7 +24,7 @@ ion-footer.main-footer
       ion-tab-button('(click)'="tienda()").main-footer__element
         ion-icon(src="assets/store.svg")
         ion-label Tienda
-      ion-tab-button(tab="carrito").main-footer__element
+      ion-tab-button('(click)'="carrito()").main-footer__element
         ion-icon(name="cart-outline")
         ion-label Carrito
       ion-tab-button('(click)'="profile()").main-footer__element

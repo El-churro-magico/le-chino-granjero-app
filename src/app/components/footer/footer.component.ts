@@ -31,7 +31,13 @@ export class FooterComponent{
     this.router.navigate(['/home']);
   }
 
+  hideCarrito(){
+    this.showDrawer = false;
+    this.uploadRecipe = false;
+  }
+
   carrito(){
+    this.showDrawer = true;
   }
 
   profile(){

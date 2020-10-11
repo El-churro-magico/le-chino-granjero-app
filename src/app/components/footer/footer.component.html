@@ -1,6 +1,7 @@
 
 <div class="popup" id="carrito" *ngIf="showDrawer">
-  <div class="drawer">
+  <div class="background" (click)="hideCarrito()"></div>
+  <div class="drawer" *ngIf="!uploadRecipe">
     <div class="products">
       <carrito-card></carrito-card>
       <carrito-card></carrito-card>
@@ -11,9 +12,7 @@
     <div class="total"><span class="total__title">Total:</span><span class="total__price">10000</span></div>
     <div class="button button--checkout button--purple">Checkout</div>
   </div>
-</div>
-<div class="popup" *ngIf="uploadRecipe">
-  <div class="drawer">
+  <div class="drawer" *ngIf="uploadRecipe">
     <div class="content">
       <ion-icon class="cloud" name="cloud-upload"></ion-icon><span>Subir comprobante de transacción de pago</span>
       <div class="button button--purple button--subir">Subir</div>
@@ -27,7 +26,7 @@
         <ion-icon src="assets/store.svg"></ion-icon>
         <ion-label>Tienda</ion-label>
       </ion-tab-button>
-      <ion-tab-button class="main-footer__element" tab="carrito">
+      <ion-tab-button class="main-footer__element" (click)="carrito()">
         <ion-icon name="cart-outline"></ion-icon>
         <ion-label>Carrito</ion-label>
       </ion-tab-button>

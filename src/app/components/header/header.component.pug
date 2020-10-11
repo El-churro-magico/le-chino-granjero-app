@@ -1,9 +1,10 @@
 ion-header.main-header
-  .notification
+  .notification('(click)'="showNotif()")
     .notification--new('*ngIf'="newNotification")
     ion-icon.bell(name="notifications-outline")
       
   .popup('*ngIf'="notification")
+    .background('(click)'="hideNotif()")
     .notification--expand
       .notification-specific('*ngIf'="specificNotification")
         .title
