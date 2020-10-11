@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,12 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ProductoCardComponent{
+  @Input() cantidad:number;
+  @Input() id:number;
+  @Input() price:number;
+  @Input() name:string;
+  @Input() cantidadCarrito:number;
+  @Input() imgUrl:string;
   constructor(
   ) {}
 

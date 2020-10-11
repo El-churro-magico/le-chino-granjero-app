@@ -8,8 +8,8 @@ ion-content.main-content
         '*ngFor'='let productor of this.auxService.productores'
         name='{{productor.name}}'
         score='{{productor.score}}'
+        productor = '{{productor.id}}'
         imgUrl = '{{productor.imgUrl}}'
-        '(click)' = 'loadProductor(productor)'
-        )  
+        ) 
 
 app-footer

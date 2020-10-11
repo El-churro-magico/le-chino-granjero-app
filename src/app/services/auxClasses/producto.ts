@@ -3,4 +3,5 @@ export class Producto{
   name:String;
   price:number;
   quantity:number;
+  imgUrl:string;
 }

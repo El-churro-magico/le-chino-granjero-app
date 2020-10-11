@@ -14,10 +14,6 @@ export class HomePage implements OnInit {
   constructor(private auxService: AuxService) {}
 
   ngOnInit(){
-  }
-
-  loadProductor(productor:Productor){
-    this.auxService.productorCargado = productor;
-  }
+  }  
 
 }

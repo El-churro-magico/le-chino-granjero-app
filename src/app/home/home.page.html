@@ -4,7 +4,7 @@
   <div class="content">
     <h2 class="content__title">Productores cerca suyo</h2>
     <div class="card-box">
-      <productor-card *ngFor="let productor of this.auxService.productores" name="{{productor.name}}" score="{{productor.score}}" imgUrl="{{productor.imgUrl}}" (click)="loadProductor(productor)"> </productor-card>
+      <productor-card *ngFor="let productor of this.auxService.productores" name="{{productor.name}}" score="{{productor.score}}" productor="{{productor.id}}" imgUrl="{{productor.imgUrl}}"> </productor-card>
     </div>
   </div>
 </ion-content>

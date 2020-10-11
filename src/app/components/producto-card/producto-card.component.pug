@@ -1,13 +1,16 @@
 .card-body
+  .card-body__background
+    img('[src]'='imgUrl')
+  .card-body__shade
   .card-info__quantity
-      p 100
+      p {{cantidad}}
   .card-info  
     .card-info__name
-      span Berenjena
+      span {{name}}
     .card-info__price
-      span ₡5
+      span ₡ {{price}}
     .button-box
       .button.button--purple
         p -
-        p 1
+        p {{cantidadCarrito}}
         p +

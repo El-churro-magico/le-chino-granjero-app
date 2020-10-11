@@ -2,9 +2,16 @@ app-header
 
 ion-content
   .content
-    h2.content__title Productos del productor
+    h2.content__title Productos de {{this.productor.name}}
     .card-box
-      producto-card
-      producto-card
+      producto-card(
+        '*ngFor'='let producto of this.productor.productos'
+        cantidad = '{{producto.quantity}}'
+        id = '{{producto.id}}'
+        name = '{{producto.name}}'
+        cantidadCarrito = '1'
+        imgUrl = '{{producto.imgUrl}}'
+        price = '{{producto.price}}'
+        )
 
 app-footer

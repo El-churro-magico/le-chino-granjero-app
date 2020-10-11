@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import {AuxService} from '../../services/aux.service'
+
+import {Productor} from '../../services/auxClasses/productor';
 
 @Component({
   selector: 'app-productor',
@@ -6,8 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['productor.page.scss'],
 })
 
-export class ProductorPage {
+export class ProductorPage implements OnInit {
 
-  constructor() {}
+  productor: Productor;
+
+  constructor(
+    private auxService: AuxService
+  ) {}
+
+  ngOnInit(){
+    this.productor = this.auxService.productorCargado;
+    console.log(this.auxService.productorCargado.name);
+  }
 
 }
