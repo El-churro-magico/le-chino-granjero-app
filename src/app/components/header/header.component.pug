@@ -57,34 +57,11 @@ ion-header.main-header
               )
         .button Siguiente
       .notification__card-box('*ngIf'="listNotification")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-        .notification__card
-          span.placeholder Calificar la compra de: <br/> Chino Yock
-          ion-icon.button-dismiss(name="close-circle")
-  
-  
+        .notification__card('*ngFor'='let noti of this.auxService.notificaciones ')
+          span.placeholder Calificar la compra de: <br/> {{noti.productor}}
+          ion-icon.button-dismiss(name="close-circle")  
   .logo
     img(src="https://img.icons8.com/plasticine/100/000000/salad.png").salad  
     .location
       img(src="https://img.icons8.com/office/80/000000/place-marker.png").pinpoint
-      span.location__text Central, Alajuela, Alajuela
+      span.location__text {{this.location}}

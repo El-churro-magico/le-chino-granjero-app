@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   constructor(private auxService: AuxService) {}
 
   ngOnInit(){
-    this.auxService.isThisWorking();
+    this.auxService.setProductores();
   }
 
 }

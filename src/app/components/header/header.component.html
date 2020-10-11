@@ -34,34 +34,13 @@
         <div class="button">Siguiente</div>
       </div>
       <div class="notification__card-box" *ngIf="listNotification">
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
-        </div>
-        <div class="notification__card"><span class="placeholder">Calificar la compra de: <br/> Chino Yock</span>
-          <ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+        <div class="notification__card" *ngFor="let noti of this.auxService.notificaciones "><span class="placeholder">Calificar la compra de: <br/> {{noti.productor}}</span>
+          <ion-icon class="button-dismiss" name="close-circle"> </ion-icon>
         </div>
       </div>
     </div>
   </div>
   <div class="logo"><img class="salad" src="https://img.icons8.com/plasticine/100/000000/salad.png"/>
-    <div class="location"><img class="pinpoint" src="https://img.icons8.com/office/80/000000/place-marker.png"/><span class="location__text">Central, Alajuela, Alajuela</span></div>
+    <div class="location"><img class="pinpoint" src="https://img.icons8.com/office/80/000000/place-marker.png"/><span class="location__text">{{this.location}}</span></div>
   </div>
 </ion-header>

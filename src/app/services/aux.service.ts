@@ -6,11 +6,21 @@ import { Injectable } from '@angular/core';
 
 export class AuxService {
 
+  productores = [];
+  productos = []
+  carrito = [];
+  notificaciones = [
+    {productor:'Chino Yock'}
+  ];
+  location = 20101;
+  token = '';
+
   constructor() { }
 
-  isThisWorking(){
-    console.log("Idk");
-
+  setProductores(){
+    this.productores = {papa:'pollo'};
+    console.log(this.productores);
   }
+
 
 }
