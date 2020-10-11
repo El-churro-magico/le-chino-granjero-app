@@ -31,7 +31,18 @@ export class AuxService {
   carrito: {
     producto:Producto,
     cantidad:number
-  }[] = [];
+  }[] = [
+    {
+      producto:{
+        id:1,
+        name:'Berenjena',
+        price:500,
+        quantity: 100,
+        imgUrl: 'https://images.pexels.com/photos/5187377/pexels-photo-5187377.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      },
+      cantidad: 4
+    }
+  ];
 
   notificaciones:{
     productor:Productor,
