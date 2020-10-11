@@ -1,11 +1,22 @@
 #carrito.popup('*ngIf'="showDrawer")
   .drawer
     .products
+      carrito-card
+      carrito-card
+      carrito-card
+      carrito-card
     .h-line
     .total
       span.total__title Total:
       span.total__price 10000
-    .button.button--purple Checkout
+    .button.button--checkout.button--purple Checkout
+
+.popup('*ngIf'="uploadRecipe")
+  .drawer
+    .content
+      ion-icon(name="cloud-upload").cloud
+      span Subir comprobante de transacción de pago
+      .button.button--purple.button--subir Subir
   
 
 ion-footer.main-footer   

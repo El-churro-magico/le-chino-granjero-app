@@ -11,7 +11,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ProductorCardComponent } from '../components/productor-card/productor-card.component';
 import { HeaderComponent } from '../components/header/header.component';
 import {FooterComponent} from '../components/footer/footer.component';
-import {ProductoCardComponent} from '../components/producto-card/producto-card.component'
+import {ProductoCardComponent} from '../components/producto-card/producto-card.component';
+import {CarritoCardComponent} from '../components/footer/carrito-card/carrito-card.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {ProductoCardComponent} from '../components/producto-card/producto-card.c
     ProductorCardComponent,
     HeaderComponent,
     FooterComponent,
-    ProductoCardComponent
+    ProductoCardComponent,
+    CarritoCardComponent
   ]
 })
 export class HomePageModule {}

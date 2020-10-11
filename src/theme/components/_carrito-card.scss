@@ -1,0 +1,67 @@
+carrito-card{
+  p{
+        margin:0;
+      }
+  background: #fff;
+  height: rem-calc(71px);
+  width: rem-calc(345px);
+  display: inline-block;
+  text-align: left;
+  padding: rem-calc(10px) rem-calc(15px);
+  position: relative;
+  border-radius: rem-calc(15px);
+  box-shadow: 0 0 rem-calc(10px) rgba(0,0,0,0.25);
+  padding-bottom: rem-calc(70px);
+  margin-bottom: .5rem;
+
+  .button-dismiss{
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font-size: 16px;
+  }
+
+  .left{
+    display: inline-block;
+    .image-round{
+      height: rem-calc(57px);
+      width: rem-calc(57px);
+      border-radius: 50%;
+      background: aquamarine;
+    }
+    .image-container{
+      position: relative;
+      .button-box{
+        position: absolute;
+        font-size: 12px;
+        width: 100%;
+        bottom: 0;
+      }
+    }
+  }
+
+  .right{
+    display: inline-block;
+    margin-left: 10px;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    .price{
+      font-weight: 400;
+      color: #52307c;
+      font-size: 20px;
+      position: absolute;
+      top: 15%;
+    }
+    .info{
+      font-weight: 400;
+      font-size: 15px;
+      color: rgba(0,0,0,0.5);
+      position: absolute;
+      top: 50%;
+    }
+  }
+
+}

@@ -19,6 +19,10 @@ import { Router } from '@angular/router';
 })
 
 export class FooterComponent{
+
+  showDrawer = false;
+  uploadRecipe = false;
+
   constructor(
     private router: Router
   ) {}
