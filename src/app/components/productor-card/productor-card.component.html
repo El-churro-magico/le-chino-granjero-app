@@ -1,14 +1,14 @@
 
 <div class="card-body" (click)="goToProductor()">
-  <div class="card-body__background"></div>
+  <div class="card-body__background"><img [src]="imgUrl"/></div>
   <div class="card-body__shade"></div>
   <div class="card-info">
     <div class="card-info__name">
-      <p>Chino Yock</p>
+      <p>{{name}}</p>
     </div>
     <div class="card-score"><img class="card-score__star" src="https://img.icons8.com/color/48/000000/filled-star.png"/>
       <div class="card-score__score">
-        <p>5/5</p>
+        <p>{{score}}/5</p>
       </div>
     </div>
   </div>

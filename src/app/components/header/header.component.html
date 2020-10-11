@@ -11,31 +11,31 @@
         <div class="title"><span>¿Cómo calificas la compra en general?</span></div>
         <div class="score">
           <div class="star" id="star-1">
-            <ion-icon name="star" *ngIf="star1"></ion-icon>
-            <ion-icon name="star-outline" *ngIf="!star1"></ion-icon>
+            <ion-icon name="star" *ngIf="star1" (click)="star1C()"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star1" (click)="star1C()"></ion-icon>
           </div>
           <div class="star" id="star-2">
-            <ion-icon name="star" *ngIf="star2"></ion-icon>
-            <ion-icon name="star-outline" *ngIf="!star2"> </ion-icon>
+            <ion-icon name="star" *ngIf="star2" (click)="star2C()"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star2" (click)="star2C()"> </ion-icon>
           </div>
           <div class="star" id="star-3">
-            <ion-icon name="star" *ngIf="star3"></ion-icon>
-            <ion-icon name="star-outline" *ngIf="!star3"></ion-icon>
+            <ion-icon name="star" *ngIf="star3" (click)="star3C()"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star3" (click)="star3C()"></ion-icon>
           </div>
           <div class="star" id="star-4">
-            <ion-icon name="star" *ngIf="star4"></ion-icon>
-            <ion-icon name="star-outline" *ngIf="!star4"></ion-icon>
+            <ion-icon name="star" *ngIf="star4" (click)="star4C()"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star4" (click)="star4C()"></ion-icon>
           </div>
           <div class="star" id="star-5">
-            <ion-icon name="star" *ngIf="star5"></ion-icon>
-            <ion-icon name="star-outline" *ngIf="!star5"></ion-icon>
+            <ion-icon name="star" *ngIf="star5" (click)="star5C()"></ion-icon>
+            <ion-icon name="star-outline" *ngIf="!star5" (click)="star5C()"></ion-icon>
           </div>
         </div>
-        <div class="button">Siguiente</div>
+        <div class="button" (click)="submitCalificacion()">Enviar</div>
       </div>
       <div class="notification__card-box" *ngIf="listNotification">
-        <div class="notification__card" *ngFor="let noti of this.auxService.notificaciones "><span class="placeholder">Calificar la compra de: <br/> {{noti.productor}}</span>
-          <ion-icon class="button-dismiss" name="close-circle"> </ion-icon>
+        <div class="notification__card" *ngFor="let noti of this.auxService.notificaciones" (click)="calificar(noti)"><span class="placeholder">Calificar la compra de: <br/> {{noti.productor.name}}</span>
+          <ion-icon class="button-dismiss" name="close-circle" (click)="dismissNotification(noti)"> </ion-icon>
         </div>
       </div>
     </div>

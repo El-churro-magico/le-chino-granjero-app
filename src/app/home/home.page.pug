@@ -4,14 +4,12 @@ ion-content.main-content
   .content
     h2.content__title Productores cerca suyo
     .card-box
-      productor-card
-      productor-card
-      productor-card
-      productor-card
-      productor-card
-      productor-card
-      productor-card
-      productor-card
-
+      productor-card(
+        '*ngFor'='let productor of this.auxService.productores'
+        name='{{productor.name}}'
+        score='{{productor.score}}'
+        imgUrl = '{{productor.imgUrl}}'
+        '(click)' = 'loadProductor(productor)'
+        )  
 
 app-footer

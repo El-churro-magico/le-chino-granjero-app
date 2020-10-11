@@ -14,52 +14,67 @@ ion-header.main-header
             ion-icon(
               name="star"
               '*ngIf'="star1"
+              '(click)'="star1C()"
               )
             ion-icon(
               name="star-outline"
               '*ngIf'="!star1"
+              '(click)'="star1C()"
               )
           .star#star-2
             ion-icon(
               name="star"
               '*ngIf'="star2"
+              '(click)'="star2C()"
               )
             ion-icon(
               name="star-outline"
               '*ngIf'="!star2"
+              '(click)'="star2C()"
               )  
           .star#star-3
             ion-icon(
               name="star"
               '*ngIf'="star3"
+              '(click)'="star3C()"
               )
             ion-icon(
               name="star-outline"
               '*ngIf'="!star3"
+              '(click)'="star3C()"
               )
           .star#star-4
             ion-icon(
               name="star"
               '*ngIf'="star4"
+              '(click)'="star4C()"
               )
             ion-icon(
               name="star-outline"
               '*ngIf'="!star4"
+              '(click)'="star4C()"              
               )
           .star#star-5
             ion-icon(
               name="star"
               '*ngIf'="star5"
+              '(click)'="star5C()"
               )
             ion-icon(
               name="star-outline"
               '*ngIf'="!star5"
+              '(click)'="star5C()"
               )
-        .button Siguiente
+        .button('(click)'="submitCalificacion()") Enviar
       .notification__card-box('*ngIf'="listNotification")
-        .notification__card('*ngFor'='let noti of this.auxService.notificaciones ')
-          span.placeholder Calificar la compra de: <br/> {{noti.productor}}
-          ion-icon.button-dismiss(name="close-circle")  
+        .notification__card(
+          '*ngFor'='let noti of this.auxService.notificaciones'
+          '(click)'='calificar(noti)')
+          span.placeholder Calificar la compra de: <br/> {{noti.productor.name}}
+          ion-icon.button-dismiss(
+            name="close-circle"
+            '(click)'="dismissNotification(noti)"
+            )  
   .logo
     img(src="https://img.icons8.com/plasticine/100/000000/salad.png").salad  
     .location

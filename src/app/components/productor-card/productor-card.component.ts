@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
 })
 
 export class ProductorCardComponent{
+  @Input() name:string;
+  @Input() score:number;
+  @Input() imgUrl:String;
   constructor(
     private router: Router
   ) {}
