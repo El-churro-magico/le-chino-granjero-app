@@ -11,12 +11,21 @@ import {CrPcdService} from 'cr-pcd';
 
 export class SignupPage implements OnInit {
 
+  // Para los cantones, provincias, distrito
   provinces: any;
   cantones: any;
   districts: any;
   provincia: any;
   canton: any;
-  distrito: any;
+  district: any;
+
+  nombre: string;
+  apellido: string;
+  cedula: string;
+  numero: string;
+  fecha: string;
+  usuario: string;
+  contrasena: string;
 
   constructor(
     private crPcd: CrPcdService,
@@ -68,6 +77,36 @@ export class SignupPage implements OnInit {
     }
     console.log(this.provinces);
 
+  }
+
+  // Aqui se realiza el request al papi, tiene que ser async
+  async requestpapi(){
+    console.log('requesting');
+
+    const data = {
+      nombre:this.nombre,
+      apellido:this.apellido,
+      cedula:this.cedula,
+      numero:this.numero,
+      fecha:this.fecha,
+      usuario:this.usuario,
+      contrasena:this.contrasena,
+      provincia:this.crPcd.getProvinces()[this.provincia],
+      canton:this.crPcd.getCantons(this.provincia)[this.canton],
+      distrito:this.crPcd.getDistricts(this.canton)[this.district]
+    };
+    console.log(data);
+
+
+    // Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+    /*
+    const response = await fetch('https://192.168.0.107:44371/api/Client',{
+      method:'POST',
+      mode: 'cors',
+      body: JSON.stringify(data)
+    }); // Aqui especificamente se hace la request
+    const myJson = await response.json(); // Este es el resultado del papi
+    console.log(myJson);*/
   }
 
 }

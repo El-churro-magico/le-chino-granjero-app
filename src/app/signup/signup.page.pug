@@ -4,20 +4,27 @@ ion-content
       span.login-content__title Registro
       .inputs
         ion-input(
-          placeholder="Nombre").inputs__input.inputs__input--user
+          placeholder="Nombre"
+          '[(ngModel)]'="nombre").inputs__input.inputs__input--user
         ion-input(
-          placeholder="Apellido").inputs__input.inputs__input--password
+          placeholder="Apellido"
+          '[(ngModel)]'='apellido').inputs__input.inputs__input--password
         ion-input(
-          placeholder="Cédula").inputs__input.inputs__input--password
+          placeholder="Cédula"
+          '[(ngModel)]'='cedula').inputs__input.inputs__input--password
         ion-input(
-          placeholder="Número telefónico").inputs__input.inputs__input--password
+          placeholder="Número telefónico"
+          '[(ngModel)]'='numero').inputs__input.inputs__input--password
         ion-input(
-          placeholder="Fecha de nacimiento").inputs__input.inputs__input--password
+          placeholder="Fecha de nacimiento"
+          '[(ngModel)]'='fecha').inputs__input.inputs__input--password
         ion-input(
-          placeholder="Usuario").inputs__input.inputs__input--password
+          placeholder="Usuario"
+          '[(ngModel)]'='usuario').inputs__input.inputs__input--password
         ion-input(
           placeholder="Contraseña"
-          type="password").inputs__input.inputs__input--password
+          type="password"
+          '[(ngModel)]'='contrasena').inputs__input.inputs__input--password
         .inputs.inputs--inline
           ion-select(
             '[(ngModel)]'="provincia",
@@ -41,6 +48,6 @@ ion-content
             ion-select-option(
                 '*ngFor'="let district of this.districts"
                 '[value]'="district.i") {{district.element}}
-      .login__submit
+      .login__submit('(click)'="requestpapi()")
         a.button.login__submit--login Registrarse
       

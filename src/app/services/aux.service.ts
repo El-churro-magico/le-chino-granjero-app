@@ -9,6 +9,7 @@ import {Producto} from './auxClasses/producto';
 
 export class AuxService {
 
+
   productores:Productor[] = [
     {name:'Chino Yock',
     id:111111111,

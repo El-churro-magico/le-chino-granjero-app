@@ -40,11 +40,9 @@ export class ProductoCardComponent implements OnInit{
   }
 
   disminuir() {
-
   }
 
   aumentar(){
-
   }
 
 }
