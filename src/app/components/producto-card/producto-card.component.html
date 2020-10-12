@@ -10,9 +10,9 @@
     <div class="card-info__price"><span>₡ {{price}}</span></div>
     <div class="button-box">
       <div class="button button--purple">
-        <p>-</p>
+        <p (click)="disminuir()">-</p>
         <p>{{cantidadCarrito}}</p>
-        <p>+</p>
+        <p (click)="aumentar()">+</p>
       </div>
     </div>
   </div>
