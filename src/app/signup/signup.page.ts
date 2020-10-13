@@ -12,6 +12,9 @@ import {CrPcdService} from 'cr-pcd';
 export class SignupPage implements OnInit {
 
   // Para los cantones, provincias, distrito
+  ipAddress: string="192.168.86.250";
+  port: string="44371";
+
   provinces: any;
   cantones: any;
   districts: any;
@@ -81,34 +84,37 @@ export class SignupPage implements OnInit {
   }
 
   // Aqui se realiza el request al papi, tiene que ser async
-  async requestpapi(){
+  async postClient(){
     console.log('requesting');
 
     const data = {
-      nombre:this.nombre,
-      apellido:this.apellido,
+      name:this.nombre,
+      lastName:this.apellido,
       cedula:this.cedula,
-      numero:this.numero,
+      phoneN:this.numero,
       address:this.direccion,
-      fecha:this.fecha,
-      usuario:this.usuario,
-      contrasena:this.contrasena,
-      provincia:this.crPcd.getProvinces()[this.provincia],
+      birthDate:this.fecha,
+      userName:this.usuario,
+      password:this.contrasena,
+      province:this.crPcd.getProvinces()[this.provincia],
       canton:this.crPcd.getCantons(this.provincia)[this.canton],
-      distrito:this.crPcd.getDistricts(this.canton)[this.district]
+      district:this.crPcd.getDistricts(this.canton)[this.district]
     };
     console.log(data);
 
 
-    // Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-    /*
-    const response = await fetch('https://192.168.0.107:44371/api/Client',{
+    //Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+    const response = await fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
       method:'POST',
       mode: 'cors',
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type':'application/json'
+      }
     }); // Aqui especificamente se hace la request
     const myJson = await response.json(); // Este es el resultado del papi
-    console.log(myJson);*/
+    console.log(myJson);
   }
 
 }
