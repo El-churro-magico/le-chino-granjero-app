@@ -2,26 +2,26 @@ ion-content
   .top-image
     img(src="assets/sample-user.png")
   .profile-info
-    .profile-info__title Chino Yock
+    .profile-info__title {{this.auxService.usuarioCargado.nombre}}
     .profile-info__content
       .profile-info__content__field 
         p Usuario
-        span cvaz
+        span {{this.auxService.usuarioCargado.username}}
       .profile-info__content__field
         p Cedula
-        span 1 1111 1111
+        span {{this.auxService.usuarioCargado.cedula}}
       .profile-info__content__field
         p.profile-info__content__field--fecha Fecha de nacimiento
-        span 3/12/2020
+        span {{this.auxService.usuarioCargado.fechaNacimiento}}
       .profile-info__content__field
         p Telefono
-        span 0000 0000
+        span {{this.auxService.usuarioCargado.telefono}}
       .profile-info__content__field
         p Direccion
-        span Del palo de mango, 500mts al norte
+        span {{this.auxService.usuarioCargado.direccion}}
   .profile-buttons
-    a.button Borrar cuenta
-    a.button.button--inverted Cerrar sesión
+    a.button('(click)'='borrarCuenta()') Borrar cuenta
+    a.button.button--inverted('(click)'='cerrarSesion()') Cerrar sesión
     
     
 app-footer.main-footer

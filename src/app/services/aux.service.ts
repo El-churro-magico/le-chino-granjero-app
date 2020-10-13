@@ -12,7 +12,7 @@ export class AuxService {
 
   usuarioCargado: User={
     username:'cvaz',
-    name: 'Chino Yock',
+    nombre: 'Chino Yock',
     fechaNacimiento:'3/12/2020',
     telefono:'0000 0000',
     cedula:'1 1111 1111',
