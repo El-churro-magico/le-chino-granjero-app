@@ -1,14 +1,15 @@
-ion-icon.button-dismiss(name="close-circle")
+ion-icon.button-dismiss(name="close-circle" '(click)'='dismiss()')
 .left
   .image-container
     .image-round
+      img('[src]'='imgUrl')
     .button-box
       .button.button--purple
-        p -
-        p 2000
-        p +
+        p('(click)'='disminuir()') -
+        p {{cantidad}}
+        p('(click)'='aumentar()') +
 .right
   .price
-    p 5
+    p ₡{{price}}
   .info
-      span Berenjenas | 20kg | Chino
+      span {{name}} | {{productor}}

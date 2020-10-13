@@ -3,13 +3,10 @@
   <div class="background" (click)="hideCarrito()"></div>
   <div class="drawer" *ngIf="!uploadRecipe">
     <div class="products">
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
+      <carrito-card *ngFor="let producto of this.auxService.carrito" cantidad="{{producto.cantidad}}" id="{{producto.producto.id}}" imgUrl="{{producto.producto.imgUrl}}" price="{{producto.producto.price}}" name="{{producto.producto.name}}"></carrito-card>
     </div>
     <div class="h-line"></div>
-    <div class="total"><span class="total__title">Total:</span><span class="total__price">10000</span></div>
+    <div class="total"><span class="total__title">Total:</span><span class="total__price">₡ {{sumarTotal()}}</span></div>
     <div class="button button--checkout button--purple">Checkout</div>
   </div>
   <div class="drawer" *ngIf="uploadRecipe">

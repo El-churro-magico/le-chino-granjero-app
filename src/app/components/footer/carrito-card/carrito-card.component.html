@@ -1,20 +1,20 @@
 
-<ion-icon class="button-dismiss" name="close-circle"></ion-icon>
+<ion-icon class="button-dismiss" name="close-circle" (click)="dismiss()"></ion-icon>
 <div class="left">
   <div class="image-container">
-    <div class="image-round"></div>
+    <div class="image-round"><img [src]="imgUrl"/></div>
     <div class="button-box">
       <div class="button button--purple">
-        <p>-</p>
-        <p>2000</p>
-        <p>+</p>
+        <p (click)="disminuir()">-</p>
+        <p>{{cantidad}}</p>
+        <p (click)="aumentar()">+</p>
       </div>
     </div>
   </div>
 </div>
 <div class="right">
   <div class="price">
-    <p>5</p>
+    <p>₡{{price}}</p>
   </div>
-  <div class="info"><span>Berenjenas | 20kg | Chino</span></div>
+  <div class="info"><span>{{name}} | {{productor}}</span></div>
 </div>

@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import {AuxService} from '../../services/aux.service';
 
 @Component({
   selector: 'app-footer',
@@ -24,7 +25,8 @@ export class FooterComponent{
   uploadRecipe = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private auxService: AuxService
   ) {}
 
   tienda(){
@@ -42,6 +44,12 @@ export class FooterComponent{
 
   profile(){
     this.router.navigate(['/home/profile'])
+  }
+
+  sumarTotal(){
+    return this.auxService.carrito.reduce(
+      (accumulator, productoCarrito)=> accumulator + productoCarrito.producto.price*productoCarrito.cantidad
+    , 0);
   }
 
 }

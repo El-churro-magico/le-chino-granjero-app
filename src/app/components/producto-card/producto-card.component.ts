@@ -52,10 +52,21 @@ export class ProductoCardComponent implements OnInit{
   aumentar(){
     if(this.cantidad <= 0){
       return;
+    }else if(!this.auxService.carrito.find(element => element.producto.id == this.id)){
+      this.auxService.carrito.push(
+        {
+          producto:this.auxService.productores.map( productor =>
+            productor.productos.find(producto=>producto.id==this.id)
+          )[0],
+          cantidad:1
+        }
+      )
+    }else{
+      this.auxService.carrito.find(element => element.producto.id == this.id).cantidad += 1;
     }
-    this.auxService.carrito.find(element => element.producto.id == this.id).cantidad += 1;
     this.cantidadCarrito += 1;
     this.cantidad -= 1;
+
   }
 
 }

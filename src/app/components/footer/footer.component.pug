@@ -2,14 +2,18 @@
   .background('(click)'="hideCarrito()")
   .drawer('*ngIf'="!uploadRecipe")
     .products
-      carrito-card
-      carrito-card
-      carrito-card
-      carrito-card
+      carrito-card(
+        '*ngFor'='let producto of this.auxService.carrito'
+        cantidad='{{producto.cantidad}}'
+        id = '{{producto.producto.id}}'
+        imgUrl='{{producto.producto.imgUrl}}'
+        price='{{producto.producto.price}}'
+        name='{{producto.producto.name}}'
+        )
     .h-line
     .total
       span.total__title Total:
-      span.total__price 10000
+      span.total__price ₡ {{sumarTotal()}}
     .button.button--checkout.button--purple() Checkout
   .drawer('*ngIf'="uploadRecipe")
     .content
