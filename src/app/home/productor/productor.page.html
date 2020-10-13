@@ -4,7 +4,7 @@
   <div class="content">
     <h2 class="content__title">Productos de {{this.productor.name}}</h2>
     <div class="card-box">
-      <producto-card *ngFor="let producto of this.productor.productos" cantidad="{{producto.quantity}}" id="{{producto.id}}" name="{{producto.name}}" cantidadCarrito="1" imgUrl="{{producto.imgUrl}}" price="{{producto.price}}"></producto-card>
+      <producto-card *ngFor="let producto of this.productor.productos" cantidad="{{producto.quantity}}" id="{{producto.id}}" name="{{producto.name}}" imgUrl="{{producto.imgUrl}}" price="{{producto.price}}"></producto-card>
     </div>
   </div>
 </ion-content>

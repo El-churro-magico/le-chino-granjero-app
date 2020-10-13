@@ -23,7 +23,7 @@ export class ProductoCardComponent implements OnInit{
   @Input() id:number;
   @Input() price:number;
   @Input() name:string;
-  @Input() cantidadCarrito:number;
+  cantidadCarrito:number;
   @Input() imgUrl:string;
   constructor(
     private auxService: AuxService
@@ -36,13 +36,26 @@ export class ProductoCardComponent implements OnInit{
       console.log(productoCarrito);
     }else{
       this.cantidadCarrito = productoCarrito.cantidad;
+      this.cantidad -= this.cantidadCarrito;
     }
   }
 
   disminuir() {
+    if(this.cantidadCarrito <= 0){
+      return;
+    }
+    this.auxService.carrito.find(element => element.producto.id == this.id).cantidad -= 1;
+    this.cantidadCarrito -= 1;
+    this.cantidad += 1;
   }
 
   aumentar(){
+    if(this.cantidad <= 0){
+      return;
+    }
+    this.auxService.carrito.find(element => element.producto.id == this.id).cantidad += 1;
+    this.cantidadCarrito += 1;
+    this.cantidad -= 1;
   }
 
 }
