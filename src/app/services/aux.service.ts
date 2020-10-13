@@ -55,9 +55,11 @@ export class AuxService {
   ];
 
   notificaciones:{
-    productor:Productor,
+    productor:number,  // id del productor
     score: number
-  }[] = [];
+  }[] = [
+    {productor:111111111,score: 1}
+  ];
   location:number = 20101;
   token:String = '';
 

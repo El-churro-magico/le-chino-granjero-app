@@ -34,7 +34,7 @@
         <div class="button" (click)="submitCalificacion()">Enviar</div>
       </div>
       <div class="notification__card-box" *ngIf="listNotification">
-        <div class="notification__card" *ngFor="let noti of this.auxService.notificaciones" (click)="calificar(noti)"><span class="placeholder">Calificar la compra de: <br/> {{noti.productor.name}}</span>
+        <div class="notification__card" *ngFor="let noti of this.auxService.notificaciones" (click)="calificar(noti)"><span class="placeholder">Calificar la compra de: <br/> {{searchProductorById(noti.productor).name}}</span>
           <ion-icon class="button-dismiss" name="close-circle" (click)="dismissNotification(noti)"> </ion-icon>
         </div>
       </div>

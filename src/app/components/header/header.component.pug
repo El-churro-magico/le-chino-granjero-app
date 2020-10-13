@@ -70,7 +70,7 @@ ion-header.main-header
         .notification__card(
           '*ngFor'='let noti of this.auxService.notificaciones'
           '(click)'='calificar(noti)')
-          span.placeholder Calificar la compra de: <br/> {{noti.productor.name}}
+          span.placeholder Calificar la compra de: <br/> {{searchProductorById(noti.productor).name}}
           ion-icon.button-dismiss(
             name="close-circle"
             '(click)'="dismissNotification(noti)"
