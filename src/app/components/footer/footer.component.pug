@@ -14,12 +14,13 @@
     .total
       span.total__title Total:
       span.total__price ₡ {{sumarTotal()}}
-    .button.button--checkout.button--purple() Checkout
+    .button.button--checkout.button--purple('(click)'='openCheckout()') Checkout
+    
   .drawer('*ngIf'="uploadRecipe")
     .content
-      ion-icon(name="cloud-upload").cloud
+      ion-icon(name="cloud-upload" '(click)'='choose()').cloud
       span Subir comprobante de transacción de pago
-      .button.button--purple.button--subir Subir
+      .button.button--purple.button--subir('(click)'='subir()') Subir
   
 
 ion-footer.main-footer   

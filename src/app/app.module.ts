@@ -7,6 +7,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Chooser} from '@ionic-native/chooser/ngx'
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { AuxService } from './services/aux.service'
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuxService
+    AuxService,
+    Chooser
   ],
   bootstrap: [AppComponent]
 })
