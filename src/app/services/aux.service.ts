@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {Productor} from './auxClasses/productor';
 import {Producto} from './auxClasses/producto';
+import {User} from './auxClasses/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,14 @@ import {Producto} from './auxClasses/producto';
 
 export class AuxService {
 
+  usuarioCargado: User={
+    username:'cvaz',
+    name: 'Chino Yock',
+    fechaNacimiento:'3/12/2020',
+    telefono:'0000 0000',
+    cedula:'1 1111 1111',
+    direccion: 'Del palo de mango, 500mts al norte'
+  };
 
   productores:Productor[] = [
     {name:'Chino Yock',
@@ -53,6 +62,16 @@ export class AuxService {
   token:String = '';
 
   constructor() { }
+
+  limpiar(){
+    this.usuarioCargado = null;
+    this.productores = null;
+    this.productorCargado = null;
+    this.carrito = null;
+    this.notificaciones = null;
+    this.location =null;
+    this.token = null;
+  }
 
 
 }

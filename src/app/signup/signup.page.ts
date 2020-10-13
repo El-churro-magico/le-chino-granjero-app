@@ -129,6 +129,7 @@ export class SignupPage implements OnInit {
           message:'SIPA',
           buttons:['okpa']
         });
+        await alert.present();
         this.router.navigate(['/login']);  // Asi se navega a otra parte de la app*/
       }).catch(async (error) => {  // Agarran los errores
           alert = await this.alertController.create({
