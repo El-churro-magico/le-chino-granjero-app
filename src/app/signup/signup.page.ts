@@ -36,7 +36,8 @@ export class SignupPage implements OnInit {
   constructor(
     private crPcd: CrPcdService,
     private cdr: ChangeDetectorRef,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ){
     this.provinces = [];
     this.cantones = [];
@@ -89,7 +90,7 @@ export class SignupPage implements OnInit {
   // Aqui se realiza el request al papi, tiene que ser async
   async postClient(){
     console.log('requesting');
-    if(!(this.name==''||this.apellido==''||this.cedula==''||this.numero==''||this.direccion==''||this.fecha==''||this.usuario==''||this.contrasena==''||this.provincia==null||this.canton==null||this.district==null))
+    if(!(this.nombre==''||this.apellido==''||this.cedula==''||this.numero==''||this.direccion==''||this.fecha==''||this.usuario==''||this.contrasena==''||this.provincia==null||this.canton==null||this.district==null))
     {
       const data = {
         name:this.nombre,
@@ -108,25 +109,55 @@ export class SignupPage implements OnInit {
 
       //Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
-      const response = await fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
+      var alert;
+
+      fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),
         headers:{
           'Content-Type':'application/json'
         }
-      }); // Aqui especificamente se hace la request
-      const myJson = await response.json(); // Este es el resultado del papi
-      console.log(myJson);
+      }).then(response =>{// Maneja los errores
+        if(!response.ok){
+          throw Error(response.statusText);
+        }
+        return response;
+      }).then(async (response)=>{  // Agarran los success
+        alert = await this.alertController.create({
+          header: 'Alert',
+          message:'SIPA',
+          buttons:['okpa']
+        });
+        this.router.navigate(['/login']);  // Asi se navega a otra parte de la app*/
+      }).catch(async (error) => {  // Agarran los errores
+          alert = await this.alertController.create({
+          header: 'Alert',
+          message:'NOPA',
+          buttons:['okpa']
+        })
+        await alert.present();
+        console.log(error);
 
+        this.nombre = '';
+        this.apellido = '';
+
+
+      });
+
+
+
+
+      /*
       const alert = await this.alertController.create({  // Asi se crea una alerta
         header: 'Alert',
         message: 'Listo pa',
         buttons:['Ok']
       });
+      await alert.present();
 
-      this.router.navigate(['/login']);  // Asi se navega a otra parte de la app
-      
+      this.router.navigate(['/login']);  // Asi se navega a otra parte de la app*/
+
     }
     else
     {
@@ -135,6 +166,7 @@ export class SignupPage implements OnInit {
         message: 'Tas mamando, llene bien la vara',
         buttons:['Sorry pah']
       });
+      await alert.present();
     }
 
 
