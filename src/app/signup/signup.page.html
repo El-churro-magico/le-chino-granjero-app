@@ -7,9 +7,10 @@
         <ion-input class="inputs__input inputs__input--password" placeholder="Apellido" [(ngModel)]="apellido"></ion-input>
         <ion-input class="inputs__input inputs__input--password" placeholder="Cédula" [(ngModel)]="cedula"></ion-input>
         <ion-input class="inputs__input inputs__input--password" placeholder="Número telefónico" [(ngModel)]="numero"></ion-input>
-        <ion-input class="inputs__input inputs__input--password" placeholder="Fecha de nacimiento" [(ngModel)]="fecha"></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Fecha de nacimiento AAAA-MM-DD" [(ngModel)]="fecha"></ion-input>
         <ion-input class="inputs__input inputs__input--password" placeholder="Usuario" [(ngModel)]="usuario"></ion-input>
         <ion-input class="inputs__input inputs__input--password" placeholder="Contraseña" type="password" [(ngModel)]="contrasena"></ion-input>
+        <ion-input class="inputs__input inputs__input--direccion" placeholder="Dirección" [(ngModel)]="direccion"></ion-input>
         <div class="inputs inputs--inline">
           <ion-select class="inputs__input inputs__input--inline" [(ngModel)]="provincia" (ionChange)="changedProvincia()" placeholder="Provincia">
             <ion-select-option *ngFor="let provincia of this.provinces" [value]="provincia.i">{{provincia.element}}</ion-select-option>

@@ -16,7 +16,7 @@ ion-content
           placeholder="Número telefónico"
           '[(ngModel)]'='numero').inputs__input.inputs__input--password
         ion-input(
-          placeholder="Fecha de nacimiento"
+          placeholder="Fecha de nacimiento AAAA-MM-DD"
           '[(ngModel)]'='fecha').inputs__input.inputs__input--password
         ion-input(
           placeholder="Usuario"
@@ -25,6 +25,10 @@ ion-content
           placeholder="Contraseña"
           type="password"
           '[(ngModel)]'='contrasena').inputs__input.inputs__input--password
+        ion-input(
+          placeholder="Dirección"
+          '[(ngModel)]'='direccion'
+          ).inputs__input.inputs__input--direccion
         .inputs.inputs--inline
           ion-select(
             '[(ngModel)]'="provincia",

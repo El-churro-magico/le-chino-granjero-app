@@ -26,6 +26,7 @@ export class SignupPage implements OnInit {
   fecha: string;
   usuario: string;
   contrasena: string;
+  direccion: string;
 
   constructor(
     private crPcd: CrPcdService,
@@ -88,6 +89,7 @@ export class SignupPage implements OnInit {
       apellido:this.apellido,
       cedula:this.cedula,
       numero:this.numero,
+      address:this.direccion,
       fecha:this.fecha,
       usuario:this.usuario,
       contrasena:this.contrasena,
