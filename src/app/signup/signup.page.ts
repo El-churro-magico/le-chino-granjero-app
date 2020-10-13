@@ -1,6 +1,8 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {AlertController} from '@ionic/angular';
+
 import {CrPcdService} from 'cr-pcd';
 
 @Component({
@@ -33,7 +35,8 @@ export class SignupPage implements OnInit {
 
   constructor(
     private crPcd: CrPcdService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private alertController: AlertController
   ){
     this.provinces = [];
     this.cantones = [];
@@ -86,35 +89,58 @@ export class SignupPage implements OnInit {
   // Aqui se realiza el request al papi, tiene que ser async
   async postClient(){
     console.log('requesting');
+    if(!(this.name==''||this.apellido==''||this.cedula==''||this.numero==''||this.direccion==''||this.fecha==''||this.usuario==''||this.contrasena==''||this.provincia==null||this.canton==null||this.district==null))
+    {
+      const data = {
+        name:this.nombre,
+        lastName:this.apellido,
+        cedula:this.cedula,
+        phoneN:this.numero,
+        address:this.direccion,
+        birthDate:this.fecha,
+        userName:this.usuario,
+        password:this.contrasena,
+        province:this.crPcd.getProvinces()[this.provincia],
+        canton:this.crPcd.getCantons(this.provincia)[this.canton],
+        district:this.crPcd.getDistricts(this.canton)[this.district]
+      };
+      console.log(data);
 
-    const data = {
-      name:this.nombre,
-      lastName:this.apellido,
-      cedula:this.cedula,
-      phoneN:this.numero,
-      address:this.direccion,
-      birthDate:this.fecha,
-      userName:this.usuario,
-      password:this.contrasena,
-      province:this.crPcd.getProvinces()[this.provincia],
-      canton:this.crPcd.getCantons(this.provincia)[this.canton],
-      district:this.crPcd.getDistricts(this.canton)[this.district]
-    };
-    console.log(data);
+      //Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+      const response = await fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
+        method:'POST',
+        mode: 'cors',
+        body: JSON.stringify(data),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }); // Aqui especificamente se hace la request
+      const myJson = await response.json(); // Este es el resultado del papi
+      console.log(myJson);
+
+      const alert = await this.alertController.create({  // Asi se crea una alerta
+        header: 'Alert',
+        message: 'Listo pa',
+        buttons:['Ok']
+      });
+
+      this.router.navigate(['/login']);  // Asi se navega a otra parte de la app
+      
+    }
+    else
+    {
+      const alert= await this.alertController.create({
+        header: 'Campos faltantes!',
+        message: 'Tas mamando, llene bien la vara',
+        buttons:['Sorry pah']
+      });
+    }
 
 
-    //Usamos el API Fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
-    const response = await fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
-      method:'POST',
-      mode: 'cors',
-      body: JSON.stringify(data),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    }); // Aqui especificamente se hace la request
-    const myJson = await response.json(); // Este es el resultado del papi
-    console.log(myJson);
+
+
   }
 
 }
