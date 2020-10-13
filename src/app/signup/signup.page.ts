@@ -126,15 +126,16 @@ export class SignupPage implements OnInit {
       }).then(async (response)=>{  // Agarran los success
         alert = await this.alertController.create({
           header: 'Alert',
-          message:'SIPA',
-          buttons:['okpa']
+          message:'Usuario creado correctamente!',
+          buttons:['Ok']
         });
+        await alert.present();
         this.router.navigate(['/login']);  // Asi se navega a otra parte de la app*/
       }).catch(async (error) => {  // Agarran los errores
           alert = await this.alertController.create({
           header: 'Alert',
-          message:'NOPA',
-          buttons:['okpa']
+          message:'Error: La cedula o nombre de usuario proporcionado ya esta registrado!',
+          buttons:['Ok']
         })
         await alert.present();
         console.log(error);
@@ -163,8 +164,8 @@ export class SignupPage implements OnInit {
     {
       const alert= await this.alertController.create({
         header: 'Campos faltantes!',
-        message: 'Tas mamando, llene bien la vara',
-        buttons:['Sorry pah']
+        message: 'Por favor llene todos los campos correspondientes!',
+        buttons:['Ok']
       });
       await alert.present();
     }
