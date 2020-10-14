@@ -30,10 +30,10 @@ export class AuxService {
         name:'Berenjena',
         price:500,
         quantity: 100,
-        imgUrl: 'https://images.pexels.com/photos/5187377/pexels-photo-5187377.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        imgUrl: 'https://i.imgur.com/3a2bLpm.jpeg'
       }
     ],
-    imgUrl:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1638864012%2F1234944579597_f.jpg&f=1&nofb=1'}
+    imgUrl:'https://i.imgur.com/FgDrs7o.jpg'}
   ];
 
   productorCargado: Productor = null;
