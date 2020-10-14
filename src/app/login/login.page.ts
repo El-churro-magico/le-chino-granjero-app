@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertController} from '@ionic/angular';
 
+import {AuxService} from '../services/aux.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: 'login.page.html',
@@ -19,8 +21,10 @@ export class LoginPage
 
 
   constructor(
-  private router: Router,
-  private alertController: AlertController) {}
+    private router: Router,
+    private alertController: AlertController,
+    private auxService: AuxService
+  ) {}
 
   signup(){
     this.router.navigate(['/signup']);
@@ -34,10 +38,13 @@ export class LoginPage
       var alert;
       console.log(this.usuario+"\n"+this.password);
 
+      let data= {password:this.password}
+
+
       fetch('https://'+this.ipAddress+':'+this.port+'/api/SignIn/client/'+this.usuario,{
         method:'POST',
         mode: 'cors',
-        body: this.password,
+        body: JSON.stringify(data),
         headers:{
           'Content-Type':'application/json'
         }
@@ -49,9 +56,8 @@ export class LoginPage
       }).then(async (response)=>{
          response.json().then(json=>{
            // logica aqui
-
-           console.log(json);
-          
+           this.auxService.token = json;
+           this.fetchProfile();
          })
       }).catch(async (error) => {  // Agarran los errores
           alert = await this.alertController.create({
@@ -63,15 +69,29 @@ export class LoginPage
         console.log(error);
       })
     }
-    else
-    {
-      const alert= await this.alertController.create({
-        header: 'Campos faltantes!',
-        message: 'Por favor llene todos los campos correspondientes!',
-        buttons:['Ok']
-      });
-      await alert.present();
-    }
   }
 
+  async fetchProfile()
+  {
+    var alert;
+    let data={token:this.auxService.token}
+    fetch('https://'+this.ipAddress+':'+this.port+'/api/Client/getUserByUserName/'+this.usuario,{
+      method:'POST',
+      mode: 'cors',
+      body:JSON.stringify(data),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(response =>{// Maneja los errores
+      if(!response.ok){
+        throw Error(response.statusText);
+      }
+      return response;
+    }).then(async (response)=>{
+       response.json().then(json=>{
+         // logica aqui
+         this.auxService.profile = json;
+       })
+    })
+  }
 }

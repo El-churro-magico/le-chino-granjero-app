@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 import {Productor} from './auxClasses/productor';
 import {Producto} from './auxClasses/producto';
+import {Profile} from './auxClasses/profile';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuxService {
-
 
   productores:Productor[] = [
     {name:'Chino Yock',
@@ -51,7 +51,7 @@ export class AuxService {
   }[] = [];
   location:number = 20101;
   token:String = '';
-
+  profile:Profile;
   constructor() { }
 
 
