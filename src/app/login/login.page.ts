@@ -54,11 +54,11 @@ export class LoginPage
         }
         return response;
       }).then(async (response)=>{
-         response.json().then(json=>{
+         response.json().then((json)=>{
            // logica aqui
            this.auxService.token = json;
-           this.fetchProfile();
-         })
+           return this.fetchProfile();
+         });
       }).catch(async (error) => {  // Agarran los errores
           alert = await this.alertController.create({
           header: 'Alert',
@@ -87,10 +87,59 @@ export class LoginPage
         throw Error(response.statusText);
       }
       return response;
-    }).then(async (response)=>{
+    }).then((response)=>{
        response.json().then(json=>{
          // logica aqui
          this.auxService.profile = json;
+         console.log(this.auxService.profile);
+         this.fetchProducersByLocation();
+         this.auxService.location=this.auxService.locationNumber(this.auxService.profile.province,this.auxService.profile.canton,this.auxService.profile.district)
+         this.router.navigate(['/home']);
+       })
+    })
+  }
+
+  async fetchProducersByLocation()
+  {
+    var alert;
+
+    fetch('https://'+this.ipAddress+':'+this.port+"/api/Producer/getProducerByLocation/"+this.auxService.profile.province+"/"+this.auxService.profile.canton+"/"+this.auxService.profile.district,{
+      method:'GET',
+      mode: 'cors',
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(response =>{// Maneja los errores
+      if(!response.ok){
+        throw Error(response.statusText);
+      }
+      return response;
+    }).then((response)=>{
+       response.json().then(json=>{
+         // logica aqui
+         this.auxService.productores=json.map(element=>{
+           return {
+             name: element.businessName,
+             address: element.address,
+             sinpeN:element.sinpeN,
+             id:element.cedula,
+             distrito:element.district,
+             score:element.calification,
+             imgUrl:"https://i.imgur.com/fj91AfX.jpeg",
+             productos:element.products.map(product=>{
+               return{
+                 id:product.id,
+                 name:product.name,
+                 price:product.cost,
+                 category:product.category,
+                 quantity:product.inStock,
+                 imgUrl:product.image
+               };
+             })
+           };
+         })
+         json;
+         console.log(this.auxService.productores);
        })
     })
   }

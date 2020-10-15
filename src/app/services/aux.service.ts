@@ -4,6 +4,8 @@ import {Productor} from './auxClasses/productor';
 import {Producto} from './auxClasses/producto';
 import {Profile} from './auxClasses/profile';
 
+import {CrPcdService} from 'cr-pcd';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +16,8 @@ export class AuxService {
     {name:'Chino Yock',
     id:111111111,
     distrito:10101,
+    address:null,
+    sinpeN:null,
     score:5,
     productos:[
       {
@@ -52,7 +56,47 @@ export class AuxService {
   location:number = 20101;
   token:String = '';
   profile:Profile;
-  constructor() { }
+  constructor(private crPcd: CrPcdService) { }
+
+  locationNumber(provincia:String, canton:String, distrito:String){
+    const provincias = this.crPcd.getProvinces();
+    let provinciaNum:number = 0;
+    let i:number = 1;
+    // Get provincia
+    console.log(provincia);
+    console.log(provincias);
+    while(provincias[i] != undefined){
+      if(provincias[i] == provincia){
+        provinciaNum = i;
+      }
+      i+=1;
+    }
+    // Get canton
+    const cantones:number = this.crPcd.getCantons(provinciaNum.toString());
+    console.log(cantones);
+    console.log(provinciaNum.toString());
+
+
+    let cantonNum:number =0;
+    i = provinciaNum*100+1;
+    while(cantones[i]!=undefined){
+      if(cantones[i] == canton){
+        cantonNum = i;
+      }
+      i+=1;
+    }
+    // Get district
+    const distritos:number = this.crPcd.getDistricts(cantonNum.toString());
+    let distritoNum:number = 0;
+    i = cantonNum*100+1;
+    while(distritos[i]!=undefined){
+      if(distritos[i]==distrito){
+        distritoNum = i;
+      }
+      i+=1;
+    }
+    return distritoNum;
+  }
 
 
 }
