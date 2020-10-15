@@ -14,9 +14,6 @@ import {CrPcdService} from 'cr-pcd';
 export class SignupPage implements OnInit {
 
   // Para los cantones, provincias, distrito
-  ipAddress: string="192.168.86.250";
-  port: string="44371";
-
   provinces: any;
   cantones: any;
   districts: any;
@@ -111,7 +108,7 @@ export class SignupPage implements OnInit {
 
       var alert;
 
-      fetch('https://'+this.ipAddress+':'+this.port+'/api/Client',{
+      fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),

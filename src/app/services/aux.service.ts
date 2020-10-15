@@ -11,59 +11,22 @@ import {User} from './auxClasses/user';
 
 export class AuxService {
 
-  usuarioCargado: User={
-    username:'cvaz',
-    nombre: 'Chino Yock',
-    fechaNacimiento:'3/12/2020',
-    telefono:'0000 0000',
-    cedula:'1 1111 1111',
-    direccion: 'Del palo de mango, 500mts al norte'
-  };
+  ipAddress: string="192.168.86.250";
+  port: string="44371";
+  productores:Productor[];
 
-  productores:Productor[] = [
-    {name:'Chino Yock',
-    id:111111111,
-    distrito:10101,
-    address:null,
-    sinpeN:null,
-    score:5,
-    productos:[
-      {
-        id:1,
-        name:'Berenjena',
-        price:500,
-        quantity: 100,
-        imgUrl: 'https://i.imgur.com/3a2bLpm.jpeg'
-      }
-    ],
-    imgUrl:'https://i.imgur.com/FgDrs7o.jpg'}
-  ];
-
-  productorCargado: Productor = null;
+  productorCargado: Productor;
 
   carrito: {
     producto:Producto,
     cantidad:number
-  }[] = [
-    {
-      producto:{
-        id:1,
-        name:'Berenjena',
-        price:500,
-        quantity: 100,
-        imgUrl: 'https://images.pexels.com/photos/5187377/pexels-photo-5187377.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-      },
-      cantidad: 4
-    }
-  ];
+  }[]=[];
 
   notificaciones:{
     productor:number,  // id del productor
     score: number
-  }[] = [
-    {productor:111111111,score: 1}
-  ];
-  location:number = 20101;
+  }[]=[];
+  location:number;
   token:String = '';
   profile:Profile;
   constructor(private crPcd: CrPcdService) { }

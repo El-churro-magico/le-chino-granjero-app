@@ -31,6 +31,20 @@ export class ProfilePage implements OnInit {
           text:'Si',
           handler: ()=>{
             console.log('Borrar cuenta');
+            let data={token:this.auxService.token}
+            fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
+              method:'DELETE',
+              mode: 'cors',
+              body:JSON.stringify(data),
+              headers:{
+                'Content-Type':'application/json'
+              }
+            }).then(response =>{// Maneja los errores
+              if(!response.ok){
+                throw Error(response.statusText);
+              }
+              return response;
+            })
             this.router.navigate(['/login']);
           }
         },

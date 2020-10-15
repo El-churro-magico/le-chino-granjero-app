@@ -8,5 +8,6 @@ export class Profile {
   address:String;
   phoneN:number;
   userName:String;
+  birthDate:String;
 
 }

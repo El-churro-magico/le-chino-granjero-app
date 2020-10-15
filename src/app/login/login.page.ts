@@ -12,10 +12,6 @@ import {AuxService} from '../services/aux.service';
 
 export class LoginPage
 {
-
-  ipAddress: string="192.168.86.250";
-  port: string="44371";
-
   usuario:string;
   password:string;
 
@@ -41,7 +37,7 @@ export class LoginPage
       let data= {password:this.password}
 
 
-      fetch('https://'+this.ipAddress+':'+this.port+'/api/SignIn/client/'+this.usuario,{
+      fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn/client/'+this.usuario,{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),
@@ -75,7 +71,7 @@ export class LoginPage
   {
     var alert;
     let data={token:this.auxService.token}
-    fetch('https://'+this.ipAddress+':'+this.port+'/api/Client/getUserByUserName/'+this.usuario,{
+    fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client/getUserByUserName/'+this.usuario,{
       method:'POST',
       mode: 'cors',
       body:JSON.stringify(data),
@@ -91,7 +87,6 @@ export class LoginPage
        response.json().then(json=>{
          // logica aqui
          this.auxService.profile = json;
-         console.log(this.auxService.profile);
          this.fetchProducersByLocation();
          this.auxService.location=this.auxService.locationNumber(this.auxService.profile.province,this.auxService.profile.canton,this.auxService.profile.district)
          this.router.navigate(['/home']);
@@ -103,7 +98,7 @@ export class LoginPage
   {
     var alert;
 
-    fetch('https://'+this.ipAddress+':'+this.port+"/api/Producer/getProducerByLocation/"+this.auxService.profile.province+"/"+this.auxService.profile.canton+"/"+this.auxService.profile.district,{
+    fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+"/api/Producer/getProducerByLocation/"+this.auxService.profile.province+"/"+this.auxService.profile.canton+"/"+this.auxService.profile.district,{
       method:'GET',
       mode: 'cors',
       headers:{

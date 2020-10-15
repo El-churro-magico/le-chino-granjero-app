@@ -2,22 +2,22 @@
 <ion-content>
   <div class="top-image"><img src="assets/sample-user.png"/></div>
   <div class="profile-info">
-    <div class="profile-info__title">{{this.auxService.usuarioCargado.nombre}}</div>
+    <div class="profile-info__title">{{this.auxService.profile.name}}</div>
     <div class="profile-info__content">
-      <div class="profile-info__content__field"> 
-        <p>Usuario</p><span>{{this.auxService.usuarioCargado.username}}</span>
+      <div class="profile-info__content__field">
+        <p>Usuario</p><span>{{this.auxService.profile.userName}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Cedula</p><span>{{this.auxService.usuarioCargado.cedula}}</span>
+        <p>Cedula</p><span>{{this.auxService.profile.cedula}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p class="profile-info__content__field--fecha">Fecha de nacimiento</p><span>{{this.auxService.usuarioCargado.fechaNacimiento}}</span>
+        <p class="profile-info__content__field--fecha">Fecha de nacimiento</p><span>{{this.auxService.profile.birthDate}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Telefono</p><span>{{this.auxService.usuarioCargado.telefono}}</span>
+        <p>Telefono</p><span>{{this.auxService.profile.phoneN}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Direccion</p><span>{{this.auxService.usuarioCargado.direccion}}</span>
+        <p>Direccion</p><span>{{this.auxService.profile.address}}</span>
       </div>
     </div>
   </div>
