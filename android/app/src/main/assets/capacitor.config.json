@@ -1,13 +1,14 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "chino-granjero",
+  "appName": "El Chino Granjero",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchShowDuration": 0,
+      "backgroundColor": "#E7454B"
     }
   },
   "cordova": {},

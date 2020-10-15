@@ -34,9 +34,9 @@ export class HeaderComponent implements OnInit{
   listNotification = false;
   location = "";
   calificando:{
-    productor: Productor,
+    productor: number,
     score: number
-  } = null;
+  };
   constructor(
     private auxService: AuxService,
     private crPcd: CrPcdService
@@ -60,23 +60,33 @@ export class HeaderComponent implements OnInit{
   calificar(noti){
     this.listNotification = false;
     this.specificNotification = true;
-    this.calificando = noti;
+    this.calificando = {productor:noti.productor, score:1};
+
   }
   submitCalificacion(){
-    console.log('Enviar al rest api calificacion de '+this.calificando.score+'a '+this.calificando.productor);
+    console.log('Enviar al rest api calificacion de '+this.calificando.score+' a '+this.calificando.productor);
     this.star1 = false;
     this.star2 = false;
     this.star3 = false;
     this.star4 = false;
     this.star5 = false;
-    this.auxService.notificaciones.splice(this.auxService.notificaciones.indexOf(this.calificando),1);
+
+    this.auxService.notificaciones = this.auxService.notificaciones.filter(
+      element => element.productor!=this.calificando.productor
+    );
+
     this.calificando = null;
     this.notification = false;
     this.listNotification = false;
     this.specificNotification = false;
   }
   dismissNotification(noti){
-    this.auxService.notificaciones.splice(this.auxService.notificaciones.indexOf(noti),1);
+    this.auxService.notificaciones = this.auxService.notificaciones.filter(
+      element => element.productor!=this.calificando.productor
+    );
+  }
+  searchProductorById(id:number){
+    return this.auxService.productores.find(element=>element.id==id);
   }
   // Metodos para las estrellas
   star1C = ()=>{

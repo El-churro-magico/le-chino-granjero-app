@@ -3,19 +3,16 @@
   <div class="background" (click)="hideCarrito()"></div>
   <div class="drawer" *ngIf="!uploadRecipe">
     <div class="products">
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
-      <carrito-card></carrito-card>
+      <carrito-card *ngFor="let producto of this.auxService.carrito" cantidad="{{producto.cantidad}}" id="{{producto.producto.id}}" imgUrl="{{producto.producto.imgUrl}}" price="{{producto.producto.price}}" name="{{producto.producto.name}}"></carrito-card>
     </div>
     <div class="h-line"></div>
-    <div class="total"><span class="total__title">Total:</span><span class="total__price">10000</span></div>
-    <div class="button button--checkout button--purple">Checkout</div>
+    <div class="total"><span class="total__title">Total:</span><span class="total__price">₡ {{sumarTotal()}}</span></div>
+    <div class="button button--checkout button--purple" (click)="openCheckout()">Checkout</div>
   </div>
   <div class="drawer" *ngIf="uploadRecipe">
     <div class="content">
-      <ion-icon class="cloud" name="cloud-upload"></ion-icon><span>Subir comprobante de transacción de pago</span>
-      <div class="button button--purple button--subir">Subir</div>
+      <ion-icon class="cloud" name="cloud-upload" (click)="choose()"></ion-icon><span>Subir comprobante de transacción de pago</span>
+      <div class="button button--purple button--subir" (click)="subir()">Subir</div>
     </div>
   </div>
 </div>

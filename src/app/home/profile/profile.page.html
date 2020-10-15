@@ -2,25 +2,25 @@
 <ion-content>
   <div class="top-image"><img src="assets/sample-user.png"/></div>
   <div class="profile-info">
-    <div class="profile-info__title">Chino Yock</div>
+    <div class="profile-info__title">{{this.auxService.usuarioCargado.nombre}}</div>
     <div class="profile-info__content">
       <div class="profile-info__content__field"> 
-        <p>Usuario</p><span>cvaz</span>
+        <p>Usuario</p><span>{{this.auxService.usuarioCargado.username}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Cedula</p><span>1 1111 1111</span>
+        <p>Cedula</p><span>{{this.auxService.usuarioCargado.cedula}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p class="profile-info__content__field--fecha">Fecha de nacimiento</p><span>3/12/2020</span>
+        <p class="profile-info__content__field--fecha">Fecha de nacimiento</p><span>{{this.auxService.usuarioCargado.fechaNacimiento}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Telefono</p><span>0000 0000</span>
+        <p>Telefono</p><span>{{this.auxService.usuarioCargado.telefono}}</span>
       </div>
       <div class="profile-info__content__field">
-        <p>Direccion</p><span>Del palo de mango, 500mts al norte</span>
+        <p>Direccion</p><span>{{this.auxService.usuarioCargado.direccion}}</span>
       </div>
     </div>
   </div>
-  <div class="profile-buttons"><a class="button">Borrar cuenta</a><a class="button button--inverted">Cerrar sesión</a></div>
+  <div class="profile-buttons"><a class="button" (click)="borrarCuenta()">Borrar cuenta</a><a class="button button--inverted" (click)="cerrarSesion()">Cerrar sesión</a></div>
 </ion-content>
 <app-footer class="main-footer"></app-footer>
