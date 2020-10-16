@@ -54,8 +54,10 @@ export class CarritoCardComponent implements OnInit{
   }
 
   aumentar(){
+
     const productoCarrito = this.auxService.carrito.find(
-      element=>element.producto.id==this.id
+      element=>{console.log(element.producto);
+      return element.producto.id==this.id}
     );
     if(productoCarrito.producto.quantity<=0){
       return
@@ -65,8 +67,6 @@ export class CarritoCardComponent implements OnInit{
   }
 
   dismiss(){
-    console.log('dis');
-
     this.auxService.carrito = this.auxService.carrito.filter(
       element=>element.producto.id!=this.id
     )
