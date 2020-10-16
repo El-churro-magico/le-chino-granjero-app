@@ -1,7 +1,12 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {AlertController} from '@ionic/angular';
+import {AlertController, Platform} from '@ionic/angular';
 import {AuxService} from '../services/aux.service';
+
+import {HttpClient} from '@angular/common/http';
+import {HTTP} from '@ionic-native/http/ngx';
+
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +23,10 @@ export class LoginPage
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private auxService: AuxService
+    private auxService: AuxService,
+    private http: HttpClient,
+    private nativeHttp: HTTP,
+    private plt: Platform
   ) {}
 
   signup(){
@@ -28,15 +36,13 @@ export class LoginPage
 
   async login()
   {
+    console.log('PECHA');
     if(!(this.usuario==""||this.password==""))
     {
       var alert;
       console.log(this.usuario+"\n"+this.password);
-
       let data= {password:this.password}
-
-
-      fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn/client/'+this.usuario,{
+      fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn/client/'+this.usuario,{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),
@@ -70,7 +76,7 @@ export class LoginPage
   {
     var alert;
     let data={token:this.auxService.token}
-    fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client/getUserByUserName/'+this.usuario,{
+    fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client/getUserByUserName/'+this.usuario,{
       method:'POST',
       mode: 'cors',
       body:JSON.stringify(data),
@@ -99,7 +105,7 @@ export class LoginPage
   {
     var alert;
 
-    fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+"/api/Producer/getProducerByLocation/"+this.auxService.profile.province+"/"+this.auxService.profile.canton+"/"+this.auxService.profile.district,{
+    fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+"/api/Producer/getProducerByLocation/"+this.auxService.profile.province+"/"+this.auxService.profile.canton+"/"+this.auxService.profile.district,{
       method:'GET',
       mode: 'cors',
       headers:{

@@ -108,7 +108,7 @@ export class SignupPage implements OnInit {
 
       var alert;
 
-      fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
+      fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),
@@ -136,10 +136,8 @@ export class SignupPage implements OnInit {
         })
         await alert.present();
         console.log(error);
-
         this.cedula = '';
         this.usuario = '';
-
 
       });
 

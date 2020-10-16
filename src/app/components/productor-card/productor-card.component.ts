@@ -32,6 +32,8 @@ export class ProductorCardComponent{
   ) {}
 
   goToProductor(){
+    console.log('Productores: '+this.auxService.productores);
+
     this.auxService.productorCargado = this.auxService.productores.find(productor => productor.id == this.productor);
     this.router.navigate(['/home/productor']);
   }

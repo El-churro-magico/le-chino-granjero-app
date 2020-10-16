@@ -11,8 +11,8 @@ import {User} from './auxClasses/user';
 
 export class AuxService {
 
-  ipAddress: string="192.168.86.250";
-  port: string="44371";
+  ipAddress: string="25.83.43.98";
+  port: string="1234";
   productores:Productor[];
 
   productorCargado: Productor;
