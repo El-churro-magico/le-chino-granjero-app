@@ -64,6 +64,22 @@ export class ProfilePage implements OnInit {
         {
           text:'Si',
           handler: ()=>{
+            let data={token:this.auxService.token,
+                      type:"clientes"}
+            fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn',{
+              method:'DELETE',
+              mode: 'cors',
+              body:JSON.stringify(data),
+              headers:{
+                'Content-Type':'application/json'
+              }
+            }).then(response =>{// Maneja los errores
+              if(!response.ok){
+                throw Error(response.statusText);
+              }
+              return response;
+            })
+
             this.router.navigate(['/login']);
           }
         },

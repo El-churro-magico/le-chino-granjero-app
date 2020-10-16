@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertController} from '@ionic/angular';
-
 import {AuxService} from '../services/aux.service';
 
 @Component({
@@ -89,6 +88,8 @@ export class LoginPage
          this.auxService.profile = json;
          this.fetchProducersByLocation();
          this.auxService.location=this.auxService.locationNumber(this.auxService.profile.province,this.auxService.profile.canton,this.auxService.profile.district)
+         this.usuario='';
+         this.password='';
          this.router.navigate(['/home']);
        })
     })
@@ -120,7 +121,7 @@ export class LoginPage
              id:element.cedula,
              distrito:element.district,
              score:element.calification,
-             imgUrl:"https://i.imgur.com/fj91AfX.jpeg",
+             imgUrl:element.image,
              productos:element.products.map(product=>{
                return{
                  id:product.id,

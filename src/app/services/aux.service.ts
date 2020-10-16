@@ -72,7 +72,6 @@ export class AuxService {
   }
 
   limpiar(){
-    this.usuarioCargado = null;
     this.productores = null;
     this.productorCargado = null;
     this.carrito = null;

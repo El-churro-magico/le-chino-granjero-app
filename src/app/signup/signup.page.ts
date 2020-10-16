@@ -1,9 +1,8 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {Router} from '@angular/router';
-
 import {AlertController} from '@ionic/angular';
-
 import {CrPcdService} from 'cr-pcd';
+import {AuxService} from '../services/aux.service';
 
 @Component({
   selector: 'app-signup',
@@ -34,7 +33,8 @@ export class SignupPage implements OnInit {
     private crPcd: CrPcdService,
     private cdr: ChangeDetectorRef,
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private auxService:AuxService
   ){
     this.provinces = [];
     this.cantones = [];
@@ -137,8 +137,8 @@ export class SignupPage implements OnInit {
         await alert.present();
         console.log(error);
 
-        this.nombre = '';
-        this.apellido = '';
+        this.cedula = '';
+        this.usuario = '';
 
 
       });
