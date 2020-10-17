@@ -76,13 +76,55 @@ export class FooterComponent{
   }
 
   async subir(){
-    const toast = await this.toastController.create({
-      message:'Su compra se ha realizado correctamente',
-      duration:2000
-    })
-    this.auxService.carrito = [];
-    this.hideCarrito();
-    await toast.present();
+
+    const data:{
+      clientID:number,
+      invoice:string,
+      token:String,
+      address:String,
+      productIds:number[][]
+    } = {
+      clientID:this.auxService.profile.cedula,
+      invoice:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmisfit120.files.wordpress.com%2F2013%2F08%2Fmoron2.jpg&f=1&nofb=1',
+      token:this.auxService.token,
+      address:this.auxService.profile.address,
+      productIds:this.auxService.carrito.map(element=>{
+        const toSend:number[] = [];
+        toSend.push(element.producto.id);
+        toSend.push(element.cantidad);
+        return toSend;
+      })
+    };
+    console.log('Subir: ' + JSON.stringify(data));
+
+    fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/orders',{
+        method:'POST',
+        mode: 'cors',
+        body: JSON.stringify(data),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }).then(response =>{// Maneja los errores
+        if(!response.ok){
+          throw Error(response.statusText);
+        }
+        return response;
+      }).then(async (response)=>{  // Agarran los success
+
+        const toast = await this.toastController.create({
+          message:'Su compra se ha realizado correctamente',
+          duration:2000
+        });
+        this.auxService.carrito = [];
+        this.hideCarrito();
+        await toast.present();
+
+        //this.router.navigate(['/login']);  // Asi se navega a otra parte de la app
+      }).catch(async (error) => {  // Agarran los errores
+        console.log(error);
+      });
+
+
   }
 
 }

@@ -42,7 +42,7 @@ export class LoginPage
       var alert;
       console.log(this.usuario+"\n"+this.password);
       let data= {password:this.password}
-      fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn/client/'+this.usuario,{
+      fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn/cliente/'+this.usuario,{
         method:'POST',
         mode: 'cors',
         body: JSON.stringify(data),

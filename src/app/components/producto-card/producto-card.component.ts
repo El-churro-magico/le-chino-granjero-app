@@ -54,7 +54,6 @@ export class ProductoCardComponent implements OnInit{
       return;
     }else if(!this.auxService.carrito.find(element => {console.log(element);
     return element.producto.id == this.id})){
-      console.log(this.auxService.productores.map(productor => productor.productos.find(producto=>producto.id==this.id)).filter(element=>element!=undefined));
       this.auxService.carrito.push(
         {
           producto:this.auxService.productores.map(productor =>
