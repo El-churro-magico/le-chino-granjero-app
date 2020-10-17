@@ -19,7 +19,6 @@ export class LoginPage
   usuario:string;
   password:string;
 
-
   constructor(
     private router: Router,
     private alertController: AlertController,

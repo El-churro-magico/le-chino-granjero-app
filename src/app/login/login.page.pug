@@ -6,10 +6,12 @@ ion-content
       span.login-content__title Iniciar sesión
       .inputs
         ion-input(
-          placeholder="Usuario").inputs__input.inputs__input--user
+          placeholder="Usuario"
+          '[(ngModel)]'='usuario').inputs__input.inputs__input--user
         ion-input(
           placeholder="Contraseña"
-          type="password").inputs__input.inputs__input--password
+          type="password"
+          '[(ngModel)]'='password').inputs__input.inputs__input--password
       .login__submit
         a('(click)'="login()").button.login__submit--login Iniciar sesión
         a('(click)'="signup()").login__submit--signup O registrarse

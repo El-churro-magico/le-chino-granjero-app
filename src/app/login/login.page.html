@@ -7,7 +7,7 @@
     <div class="login-content"><span class="login-content__title">Iniciar sesión</span>
       <div class="inputs">
         <ion-input class="inputs__input inputs__input--user" placeholder="Usuario" [(ngModel)]="usuario"></ion-input>
-        <ion-input class="inputs__input inputs__input--password" placeholder="Contraseña" [(ngModel)]="password" type="password" ></ion-input>
+        <ion-input class="inputs__input inputs__input--password" placeholder="Contraseña" type="password" [(ngModel)]="password"></ion-input>
       </div>
       <div class="login__submit"><a class="button login__submit--login" (click)="login()">Iniciar sesión</a><a class="login__submit--signup" (click)="signup()">O registrarse</a></div>
     </div>

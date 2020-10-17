@@ -32,7 +32,7 @@ export class ProfilePage implements OnInit {
           handler: ()=>{
             console.log('Borrar cuenta');
             let data={token:this.auxService.token}
-            fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
+            fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Client',{
               method:'DELETE',
               mode: 'cors',
               body:JSON.stringify(data),
@@ -66,7 +66,7 @@ export class ProfilePage implements OnInit {
           handler: ()=>{
             let data={token:this.auxService.token,
                       type:"clientes"}
-            fetch('https://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn',{
+            fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/SignIn',{
               method:'DELETE',
               mode: 'cors',
               body:JSON.stringify(data),
