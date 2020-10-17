@@ -24,7 +24,8 @@ export class AuxService {
 
   notificaciones:{
     productor:number,  // id del productor
-    score: number
+    score: number,
+    id:number
   }[]=[];
   location:number;
   token:String = '';
@@ -46,9 +47,6 @@ export class AuxService {
     }
     // Get canton
     const cantones:number = this.crPcd.getCantons(provinciaNum.toString());
-    console.log(cantones);
-    console.log(provinciaNum.toString());
-
 
     let cantonNum:number =0;
     i = provinciaNum*100+1;

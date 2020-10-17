@@ -92,6 +92,15 @@ export class LoginPage
          // logica aqui
          this.auxService.profile = json;
          this.fetchProducersByLocation();
+
+         this.auxService.notificaciones = this.auxService.profile.notifications.map(element=>{
+           return {
+             productor:element.producerID,
+             score:0,
+             id: element.ID
+           }
+         })
+
          this.auxService.location=this.auxService.locationNumber(this.auxService.profile.province,this.auxService.profile.canton,this.auxService.profile.district)
          this.usuario='';
          this.password='';

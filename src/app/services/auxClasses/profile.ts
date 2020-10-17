@@ -9,5 +9,10 @@ export class Profile {
   phoneN:number;
   userName:String;
   birthDate:String;
-
+  notifications:{
+    producerID:number,
+    clientID:number,
+    message:string,
+    ID:number
+  }[]
 }

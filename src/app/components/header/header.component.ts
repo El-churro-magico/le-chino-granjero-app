@@ -35,7 +35,8 @@ export class HeaderComponent implements OnInit{
   location = "";
   calificando:{
     productor: number,
-    score: number
+    score: number,
+    id:number
   };
   constructor(
     private auxService: AuxService,
@@ -60,25 +61,48 @@ export class HeaderComponent implements OnInit{
   calificar(noti){
     this.listNotification = false;
     this.specificNotification = true;
-    this.calificando = {productor:noti.productor, score:1};
+    this.calificando = {productor:noti.productor, score:1, id:noti.id};
 
   }
   submitCalificacion(){
     console.log('Enviar al rest api calificacion de '+this.calificando.score+' a '+this.calificando.productor);
-    this.star1 = false;
-    this.star2 = false;
-    this.star3 = false;
-    this.star4 = false;
-    this.star5 = false;
 
-    this.auxService.notificaciones = this.auxService.notificaciones.filter(
-      element => element.productor!=this.calificando.productor
-    );
+    let data= {}
+    fetch('http://'+this.auxService.ipAddress+':'+this.auxService.port+'/api/Producer/Rate/'+this.calificando.score+'/'+this.calificando.productor+'/'+this.calificando.id,{
+      method:'POST',
+      mode: 'cors',
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(response =>{// Maneja los errores
+      if(!response.ok){
+        throw Error(response.statusText);
+      }
+      return response;
+    }).then(async (response)=>{
+       response.json().then((json)=>{
+         this.star1 = false;
+         this.star2 = false;
+         this.star3 = false;
+         this.star4 = false;
+         this.star5 = false;
 
-    this.calificando = null;
-    this.notification = false;
-    this.listNotification = false;
-    this.specificNotification = false;
+         this.auxService.notificaciones = this.auxService.notificaciones.filter(
+           element => element.productor!=this.calificando.productor
+         );
+
+         this.calificando = null;
+         this.notification = false;
+         this.listNotification = false;
+         this.specificNotification = false;
+       });
+    }).catch(async (error) => {  // Agarran los errores
+
+      console.log(error);
+    })
+
+
   }
   dismissNotification(noti){
     this.auxService.notificaciones = this.auxService.notificaciones.filter(
