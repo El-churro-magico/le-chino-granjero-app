@@ -1,3 +1,4 @@
+/** Clase encargada de representar un perfil*/
 export class Profile {
   cedula:number;
   name:String;

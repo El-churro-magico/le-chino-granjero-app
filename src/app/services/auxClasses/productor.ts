@@ -1,5 +1,5 @@
 import {Producto} from './producto';
-
+/** Clase encargada de representar un productor*/
 export class Productor{
   name:String;
   address:String;

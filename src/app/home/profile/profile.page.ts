@@ -11,6 +11,7 @@ import {AuxService} from '../../services/aux.service'
   styleUrls: ['profile.page.scss'],
 })
 
+/** Clase encargada de representar la página del perfil del cliente */
 export class ProfilePage implements OnInit {
 
   constructor(
@@ -22,6 +23,7 @@ export class ProfilePage implements OnInit {
   ngOnInit(){  //  On init
   }
 
+  /** Método encargado de borrar la cuenta del cliente y enviar la solicitud al REST*/
   async borrarCuenta(){
     const alert = await this.alertController.create({
       header:'Confirmar',
@@ -56,6 +58,7 @@ export class ProfilePage implements OnInit {
     await alert.present();
   }
 
+  /** Método encargado de cerrar la sesión del cliente y enviar la solicitud al REST*/
   async cerrarSesion(){
     const alert = await this.alertController.create({
       header:'Confirmar',

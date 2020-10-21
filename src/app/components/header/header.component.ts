@@ -22,18 +22,20 @@ import {Productor} from '../../services/auxClasses/productor'
     IonicModule]
 })
 
+/** Clase encargada de representar el header de la app*/
 export class HeaderComponent implements OnInit{
-  star1 = false;
+  star1 = false;  // Las estrellas que tiene el productor que se califica
   star2 = false;
   star3 = false;
   star4 = false;
   star5 = false;
-  newNotification = false;
-  notification = false;
-  specificNotification = false;
-  listNotification = false;
-  location = "";
-  calificando:{
+
+  newNotification = false; // Boolean para mostrar si hay una notificacion nueva
+  notification = false; // Boolean para mostrar el panel de notificacion
+  specificNotification = false; // Boolean para mostrar una notificacion especifica
+  listNotification = false; // Boolean para mostrar todas las notificaciones
+  location = ""; // La ubicacion del cliente
+  calificando:{ // Productor que se esta calificando
     productor: number,
     score: number,
     id:number
@@ -43,27 +45,36 @@ export class HeaderComponent implements OnInit{
     private crPcd: CrPcdService
   ) {}
 
+  /**
+  * Metodo ejecutado al inicializar el componente,
+  * se encarga de cargar la ubicacion
+  */
   ngOnInit(){
     const distrito = this.crPcd.getDistricts(Math.floor(this.auxService.location/100).toString())[this.auxService.location];
     const canton = this.crPcd.getCantons(Math.floor(this.auxService.location/10000).toString())[Math.floor(this.auxService.location/100)];
     const provincia = this.crPcd.getProvinces()[Math.floor(this.auxService.location/10000)];
     this.location = provincia + ', ' + canton + ', ' + distrito;
   }
+  /** Funcion que muestra la lista de notificaciones*/
   showNotif(){
     this.notification = true;
     this.listNotification = true;
   }
+  /** Funcion que esconde el panel de notificaciones*/
   hideNotif(){
     this.notification = false;
     this.listNotification = false;
     this.specificNotification = false;
   }
+  /**Funcion que muestra una notificacion especifica para calificar*/
   calificar(noti){
     this.listNotification = false;
     this.specificNotification = true;
     this.calificando = {productor:noti.productor, score:1, id:noti.id};
 
   }
+
+  /*** Funcion que sube una notificacion al rest api*/
   submitCalificacion(){
     console.log('Enviar al rest api calificacion de '+this.calificando.score+' a '+this.calificando.productor);
 
@@ -104,11 +115,18 @@ export class HeaderComponent implements OnInit{
 
 
   }
+
+  /**Funcion que borra una notificacion*/
   dismissNotification(noti){
     this.auxService.notificaciones = this.auxService.notificaciones.filter(
       element => element.productor!=this.calificando.productor
     );
   }
+
+  /**Funcion que busca un productor por su id en el servicio
+  * @param {number} id - El id del productor a buscar
+  * @return {Productor} El productor encontrado.
+  */
   searchProductorById(id:number){
     return this.auxService.productores.find(element=>element.id==id);
   }

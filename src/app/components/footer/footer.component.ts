@@ -45,31 +45,37 @@ export class FooterComponent{
     this.router.navigate(['/home']);
   }
 
+  /** Esconde el componente de carrito*/
   hideCarrito(){
     this.showDrawer = false;
     this.uploadRecipe = false;
   }
 
+  /** Muestra el componente de carrito*/
   carrito(){
     this.showDrawer = true;
   }
 
+  /** Navega a la pagina de perfil */
   profile(){
     this.router.navigate(['/home/profile'])
   }
 
+  /**Se encarga de sumar el total de la orden del carrito*/
   sumarTotal(){
     return this.auxService.carrito.reduce(
       (accumulator, productoCarrito)=> accumulator + productoCarrito.producto.price*productoCarrito.cantidad
     , 0);
   }
 
+  /**Cambia la pantalla del carrito para que se pueda subir el recibo*/
   openCheckout(){
     if(this.auxService.carrito.length > 0){
       this.uploadRecipe = true;
     }
   }
 
+  /** Abre el selector de archivos*/
   async choose(){
     this.chooser.getFile('image/*')
       .then(file=>console.log(file?file.name:'canceled'))
@@ -83,6 +89,7 @@ export class FooterComponent{
     await toast.present();
   }
 
+  /** Sube el pedido y el recibo del carrito al REST*/
   async subir(){
 
     const data:{

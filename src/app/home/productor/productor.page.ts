@@ -10,6 +10,7 @@ import {Productor} from '../../services/auxClasses/productor';
   styleUrls: ['productor.page.scss'],
 })
 
+/** Clase que representa la página de un productor */
 export class ProductorPage implements OnInit {
 
   productor: Productor;
@@ -18,6 +19,9 @@ export class ProductorPage implements OnInit {
     private auxService: AuxService
   ) {}
 
+  /** Método ejecutado al inicializar el componente, se encarga de cargar el productor
+  * y su info en la página.
+  */
   ngOnInit(){
     this.productor = this.auxService.productorCargado;
     console.log(this.auxService.productorCargado.name);

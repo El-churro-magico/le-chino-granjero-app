@@ -20,19 +20,22 @@ import {AuxService} from '../../../services/aux.service';
     IonicModule
   ]
 })
-
+/** Esta clase representa cada elemento del carrito*/
 export class CarritoCardComponent implements OnInit{
-  @Input() imgUrl:string;
-  @Input() cantidad:number;
-  @Input() price:number;
-  @Input() name:string;
-  @Input() id:number;
-  productor:String;
+  @Input() imgUrl:string;  // La imagen
+  @Input() cantidad:number; // La cantidad
+  @Input() price:number; // El precio
+  @Input() name:string; // El nombre
+  @Input() id:number; // El id
+  productor:String; // El productor al que pertenece
 
   constructor(
     private auxService: AuxService
   ) {}
 
+  /** Metodo que se ejecuta al inicializar el componente,
+  * se encarga de vincular el productor con el producto actual
+  */
   ngOnInit(){
     this.productor = this.auxService.productores.find(
       productor=>productor.productos.find(
@@ -40,7 +43,7 @@ export class CarritoCardComponent implements OnInit{
       )
     ).name;
   }
-
+  /**Método encargado de disminuir la cantidad de este producto en el carrito*/
   disminuir(){
     if(this.cantidad <=0){
       return
@@ -53,6 +56,7 @@ export class CarritoCardComponent implements OnInit{
 
   }
 
+  /** Metodo encargado de aumentar la cantidad de este producto en el carrito*/
   aumentar(){
 
     const productoCarrito = this.auxService.carrito.find(
@@ -66,6 +70,7 @@ export class CarritoCardComponent implements OnInit{
     productoCarrito.producto.quantity -=1;
   }
 
+  /**Metodo encargado de eliminar el producto del carrito*/
   dismiss(){
     this.auxService.carrito = this.auxService.carrito.filter(
       element=>element.producto.id!=this.id

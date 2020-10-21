@@ -1,3 +1,4 @@
+/** Clase encargada de representar un producto*/
 export class Producto{
   id:number;
   name:String;
