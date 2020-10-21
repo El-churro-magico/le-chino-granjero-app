@@ -9,11 +9,13 @@ import {Productor} from '../services/auxClasses/productor';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
 
+/** Clase que representa la pagina principal */
+export class HomePage{
+  /**
+  * Al ser auxService un inyectable se tiene que definir dentro de los parametros
+  * del constructor para poder ser utilizado
+  */
   constructor(private auxService: AuxService) {}
-
-  ngOnInit(){
-  }  
 
 }

@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+// En este archivo se establecen todas las rutas de la app.
+
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'login', // Esta ruta tira a login
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
-    path: 'signup',
+    path: 'signup', // Esta ruta tira a signup
     loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule)
   },
   {
-    path: 'home',
+    path: 'home', // Esta ruta tira al home cuando ya se hubo registrado un cliente
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: '',
+    path: '', // La ruta vacia redirecciona a login
     redirectTo: 'login',
     pathMatch: 'full'
   },

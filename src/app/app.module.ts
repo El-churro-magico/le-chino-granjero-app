@@ -33,4 +33,6 @@ import { AuxService } from './services/aux.service'
   ],
   bootstrap: [AppComponent]
 })
+
+/** Clase principal, de aqui se empieza*/
 export class AppModule {}

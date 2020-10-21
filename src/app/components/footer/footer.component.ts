@@ -21,11 +21,18 @@ import {AuxService} from '../../services/aux.service';
     IonicModule]
 })
 
+/** Clase encargada de cargar el componente del footer*/
 export class FooterComponent{
 
-  showDrawer = false;
-  uploadRecipe = false;
+  showDrawer = false; // Variable booleana para mostrar el carrito
+  uploadRecipe = false; // Variable binaria para mostrar la seccion de subir el recibo en el carrito
 
+  /**
+  * Router para usar redirecciones,
+  * auxService para usar el servicio,
+  * chooser para utilizar el selector de archivos nativo de android
+  * toastController para enviar un toast cuando se hace algo
+  */
   constructor(
     private router: Router,
     private auxService: AuxService,
@@ -33,6 +40,7 @@ export class FooterComponent{
     private toastController: ToastController
   ) {}
 
+  /** Se usa para navegar a la tienda*/
   tienda(){
     this.router.navigate(['/home']);
   }

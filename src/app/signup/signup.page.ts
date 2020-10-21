@@ -10,6 +10,7 @@ import {AuxService} from '../services/aux.service';
   styleUrls: ['signup.page.scss']
 })
 
+/** Clase encargada de cargar la página de signup */
 export class SignupPage implements OnInit {
 
   // Para los cantones, provincias, distrito
@@ -20,6 +21,7 @@ export class SignupPage implements OnInit {
   canton: any;
   district: any;
 
+  // Para los datos del nuevo cliente
   nombre: string;
   apellido: string;
   cedula: string;
@@ -29,6 +31,12 @@ export class SignupPage implements OnInit {
   contrasena: string;
   direccion: string;
 
+  /** Utilizamos crPcd para los cantones, distritos y provincias,
+  * ChangeDetectorRef para detectar cambios en los fields,
+  * AlertController para lanzar alertas,
+  * router para redireccionar
+  * auxService para utilizar el servicio auxiliar
+  */
   constructor(
     private crPcd: CrPcdService,
     private cdr: ChangeDetectorRef,
@@ -41,6 +49,7 @@ export class SignupPage implements OnInit {
     this.districts = [];
   }
 
+  /** Metodo que se ejecuta al cambiar una provincia y carga los cantones correspondientes*/
   changedProvincia(){
     const cantonesObj = this.crPcd.getCantons(this.provincia);
     console.log(cantonesObj);
@@ -55,6 +64,7 @@ export class SignupPage implements OnInit {
     }
   }
 
+  /**Metodo que se ejecuta al cambiar un canton y carga los distritos correspondientes*/
   changedCanton(){
     const districtObj = this.crPcd.getDistricts(this.canton);
     this.districts = [];
@@ -70,10 +80,9 @@ export class SignupPage implements OnInit {
 
   }
 
-  changedDistrict(){
-
-  }
-
+  /**
+  * Metodo que se ejecuta al inicializarse el componente, carga las provincias.
+  */
   async ngOnInit(){
     const provincesObj = this.crPcd.getProvinces();
     for (let i = 1; i < 8; i++) {
@@ -84,7 +93,7 @@ export class SignupPage implements OnInit {
 
   }
 
-  // Aqui se realiza el request al papi, tiene que ser async
+  /**Aqui se realiza el request al papi, tiene que ser async*/
   async postClient(){
     console.log('requesting');
     if(!(this.nombre==''||this.apellido==''||this.cedula==''||this.numero==''||this.direccion==''||this.fecha==''||this.usuario==''||this.contrasena==''||this.provincia==null||this.canton==null||this.district==null))

@@ -14,25 +14,33 @@ import {finalize} from 'rxjs/operators';
   styleUrls: ['login.page.scss']
 })
 
+
+/** Pagina de login*/
 export class LoginPage
 {
-  usuario:string;
-  password:string;
+  usuario:string; // Usuario
+  password:string; // Contraseña
 
+  /**
+  * Definimos un router para redireccionar a otras paginas,
+  * alertController para lanzar alertas y auxService para hacer uso del servicio
+  */
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private auxService: AuxService,
-    private http: HttpClient,
-    private nativeHttp: HTTP,
-    private plt: Platform
+    private auxService: AuxService
   ) {}
 
+  /** Se ejecuta al presionar el signup, redirecciona a signup*/
   signup(){
     this.router.navigate(['/signup']);
     console.log("A");
   }
 
+  /** Se ejecuta al presionar login, envia las solicitudes necesarias al REST
+  *  para guardar los datos que se requieren dentro del servicio, como lo son:
+  *  perfil del cliente y productores cercanos.
+  */
   async login()
   {
     console.log('PECHA');
@@ -71,6 +79,9 @@ export class LoginPage
     }
   }
 
+  /** Lo utilizamos para traer el perfil del cliente desde la base de datos
+  * y guardar la información en el registro
+  */
   async fetchProfile()
   {
     var alert;
@@ -109,6 +120,10 @@ export class LoginPage
     })
   }
 
+  /**
+  *  Trae los productores que están en el mismo distrito que el cliente y los guarda
+  *  en el servicio.
+  */
   async fetchProducersByLocation()
   {
     var alert;

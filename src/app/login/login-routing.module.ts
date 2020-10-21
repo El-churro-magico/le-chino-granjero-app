@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginPage } from './login.page';
 
+// Para login no hay rutas, solo la principal
+
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage,
+    component: LoginPage,  // carga el componente de LoginPage en esta ruta
   }
 ];
 
